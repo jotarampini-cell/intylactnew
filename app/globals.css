@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Intylact design tokens
+   Extracted from the live intylact.com stylesheet.
+   Tailwind v4 reads @theme to generate utilities: bg-coral-400,
+   text-teal-900, font-heading, etc.
+   --------------------------------------------------------------- */
+@theme {
+  /* Brand */
+  --color-teal-900: #00303c;
+  --color-teal-700: #0a4a5a;
+  --color-coral-400: #ff8e80;
+  --color-coral-500: #e5604f; /* AA-safe fill for white text */
+  --color-coral-200: #ffb4a8;
+  --color-coral-100: #ffd3c6;
+  --color-mint-300: #65d4dc;
+  --color-mint-100: #cdf1f4;
+  --color-butter-200: #ffc975;
+  --color-butter-100: #ffe6bd;
+  --color-green-500: #83b735;
+  --color-violet-500: #6c63ac;
+  --color-pink-500: #e0567f;
+  --color-cream: #fffaf6;
+
+  /* Fonts — wired to next/font variables in layout.tsx */
+  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
+
+  /* Section rhythm (desktop); sections scale down via clamp below */
+  --spacing-section: 7rem; /* 112px */
+
+  /* Motion */
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Brand gradients — used by hero, footer, and accent panels */
+:root {
+  --grad-hero: linear-gradient(135deg, #63d2d6 0%, #ffd3b6 100%);
+  --grad-warm: linear-gradient(90deg, #ff9b9b 0%, #ffc3a0 100%);
+  --grad-violet: linear-gradient(120deg, #6c63ac 0%, #e0567f 100%);
+  --grad-hero-rich: linear-gradient(
+    135deg,
+    #8b7fd4 0%,
+    #b98fd0 28%,
+    #ff9b9b 62%,
+    #ffc3a0 100%
+  );
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-teal-900);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-teal-900);
+  text-wrap: balance;
+}
+
+/* Visible, consistent focus ring on every interactive element */
+:focus-visible {
+  outline: 3px solid var(--color-teal-900);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip link — visible only when focused */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Honor reduced-motion across marquee, carousel, and scroll reveals */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
