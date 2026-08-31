@@ -67,7 +67,7 @@ export default function VideoFeature() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="relative aspect-video overflow-hidden rounded-[1.5rem] sm:rounded-[2rem]">
+          <div className="relative aspect-video overflow-hidden rounded-[16px] sm:rounded-[20px]">
             {playing && VIDEO ? (
               VIDEO.type === "youtube" ? (
                 <iframe
@@ -112,7 +112,7 @@ export default function VideoFeature() {
                     className="group absolute inset-0 grid place-items-center"
                   >
                     <span className="sr-only">Reproducir video</span>
-                    <span className="relative grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-[0_10px_40px_rgba(0,48,60,.3)] transition-transform duration-300 ease-[var(--ease-brand)] group-hover:scale-110 sm:h-20 sm:w-20">
+                    <span className="relative grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-[0_10px_40px_rgba(0,48,60,.3)] transition-transform duration-[var(--dur-fast)] ease-[var(--ease-brand)] group-hover:scale-110 sm:h-20 sm:w-20">
                       <span
                         aria-hidden="true"
                         className="absolute inset-0 rounded-full bg-white/60 motion-safe:animate-[var(--animate-pulse-ring)]"

@@ -62,27 +62,27 @@ export default function ShopMenu() {
       <Link
         href="/tienda"
         aria-expanded={open}
-        className="inline-flex items-center gap-1 font-heading text-[11px] font-medium uppercase tracking-[0.08em] text-teal-900 transition-colors duration-300 ease-[var(--ease-brand)] hover:text-coral-500"
+        className="inline-flex items-center gap-1 font-heading text-[11px] font-medium uppercase tracking-[0.08em] text-teal-900 transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:text-coral-500"
       >
         Tienda
         <Icon
           name="chevron-down"
           size={12}
           strokeWidth={2.2}
-          className={`transition-transform duration-300 ease-[var(--ease-brand)] ${open ? "rotate-180" : ""}`}
+          className={`transition-transform duration-[var(--dur-fast)] ease-[var(--ease-brand)] ${open ? "rotate-180" : ""}`}
         />
       </Link>
 
       <div
         /* Anchored to the trigger's left edge rather than centred: at 880px
            wide, centring pushed the panel past the viewport's left edge. */
-        className={`absolute left-0 top-full z-50 w-[min(880px,calc(100vw-44px))] pt-5 transition-all duration-300 ease-[var(--ease-brand)] ${
+        className={`absolute left-0 top-full z-50 w-[min(880px,calc(100vw-44px))] pt-5 transition-all duration-[var(--dur-fast)] ease-[var(--ease-brand)] ${
           open
             ? "visible translate-y-0 opacity-100"
             : "invisible -translate-y-2 opacity-0"
         }`}
       >
-        <div className="grid grid-cols-[1.1fr_1fr] gap-7 rounded-[1.5rem] bg-white p-7 shadow-[0_24px_60px_rgba(0,48,60,.18)]">
+        <div className="grid grid-cols-[1.1fr_1fr] gap-7 rounded-[16px] bg-white p-7 shadow-[0_24px_60px_rgba(0,48,60,.18)]">
           <div>
             <p className="font-heading text-[11px] font-semibold uppercase tracking-[0.16em] text-teal-900/45">
               Por categoría
@@ -93,9 +93,9 @@ export default function ShopMenu() {
                   <Link
                     href={`/tienda?categoria=${c.id}`}
                     onClick={() => setOpen(false)}
-                    className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors duration-300 ease-[var(--ease-brand)] hover:bg-cream"
+                    className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:bg-cream"
                   >
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-mint-100 transition-transform duration-300 ease-[var(--ease-brand)] group-hover:scale-110">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-mint-100 transition-transform duration-[var(--dur-fast)] ease-[var(--ease-brand)] group-hover:scale-110">
                       <Icon name={icons[c.id]} size={18} className="text-teal-900" />
                     </span>
                     <span className="min-w-0">
@@ -113,7 +113,7 @@ export default function ShopMenu() {
             <Link
               href="/tienda"
               onClick={() => setOpen(false)}
-              className="mt-4 inline-flex items-center gap-1.5 font-heading text-[13px] font-semibold text-coral-500 transition-colors duration-300 ease-[var(--ease-brand)] hover:text-teal-900"
+              className="mt-4 inline-flex items-center gap-1.5 font-heading text-[13px] font-semibold text-coral-500 transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:text-teal-900"
             >
               Ver todos los productos
               <Icon name="arrow-right" size={14} />
@@ -130,7 +130,7 @@ export default function ShopMenu() {
                   <Link
                     href={`/tienda/${p.slug}`}
                     onClick={() => setOpen(false)}
-                    className={`group flex items-center gap-3 rounded-xl p-2 transition-colors duration-300 ease-[var(--ease-brand)] hover:bg-cream`}
+                    className={`group flex items-center gap-3 rounded-xl p-2 transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:bg-cream`}
                   >
                     <span className={`grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-lg bg-gradient-to-br ${p.accent}`}>
                       {p.image && (

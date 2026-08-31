@@ -87,12 +87,14 @@ export default function OfferCountdown() {
       </Reveal>
 
       <div className="mt-8 sm:mt-10">
+        {/* Capped at four so the grid stays a single row: six cards wrapped to
+            two rows and pushed the section past 1,400px. */}
         <Carousel
           label="Productos en oferta"
-          gridClass="sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:pb-0 lg:grid-cols-3"
-          itemClass="w-[76vw] max-w-[300px]"
+          gridClass="sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:pb-0 lg:grid-cols-4"
+          itemClass="w-[68vw] max-w-[260px]"
         >
-          {onSale.map((p) => (
+          {onSale.slice(0, 4).map((p) => (
             <ProductCard key={p.slug} product={p} compact />
           ))}
         </Carousel>

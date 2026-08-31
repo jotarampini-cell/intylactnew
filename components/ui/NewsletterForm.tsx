@@ -62,11 +62,11 @@ export default function NewsletterForm() {
           }}
           aria-invalid={state === "error"}
           aria-describedby={state === "error" ? `${id}-error` : undefined}
-          className="min-h-12 flex-1 rounded-full border-2 border-white/20 bg-white/10 px-5 text-[15px] text-white placeholder:text-white/45 transition-colors duration-300 ease-[var(--ease-brand)] focus:border-mint-300 focus:outline-none"
+          className="min-h-12 flex-1 rounded-full border-2 border-white/20 bg-white/10 px-5 text-[15px] text-white placeholder:text-white/45 transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] focus:border-mint-300 focus:outline-none"
         />
         <button
           type="submit"
-          className="min-h-12 shrink-0 rounded-full bg-mint-300 px-7 font-heading text-[15px] font-semibold text-teal-900 transition-[transform,background-color] duration-300 ease-[var(--ease-brand)] hover:-translate-y-0.5 hover:bg-white"
+          className="min-h-12 shrink-0 rounded-full bg-mint-300 px-7 font-heading text-[15px] font-semibold text-teal-900 transition-[transform,background-color] duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:-translate-y-0.5 hover:bg-white"
         >
           Suscribirme
         </button>

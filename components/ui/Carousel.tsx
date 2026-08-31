@@ -70,7 +70,7 @@ export default function Carousel({
             aria-hidden="true"
             tabIndex={-1}
             onClick={() => scrollBy(-1)}
-            className={`absolute -left-3 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white text-teal-900 shadow-[0_4px_18px_rgba(0,48,60,.16)] transition-all duration-300 hover:scale-105 lg:grid ${
+            className={`absolute -left-3 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white text-teal-900 shadow-[0_4px_18px_rgba(0,48,60,.16)] transition-all duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:scale-105 lg:grid ${
               canPrev ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
           >
@@ -81,7 +81,7 @@ export default function Carousel({
             aria-hidden="true"
             tabIndex={-1}
             onClick={() => scrollBy(1)}
-            className={`absolute -right-3 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white text-teal-900 shadow-[0_4px_18px_rgba(0,48,60,.16)] transition-all duration-300 hover:scale-105 lg:grid ${
+            className={`absolute -right-3 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white text-teal-900 shadow-[0_4px_18px_rgba(0,48,60,.16)] transition-all duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:scale-105 lg:grid ${
               canNext ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
           >

@@ -43,7 +43,7 @@ function LinkGroup({
           {title}
           <span
             aria-hidden="true"
-            className="grid h-6 w-6 place-items-center transition-transform duration-300 ease-[var(--ease-brand)] group-open:rotate-45"
+            className="grid h-6 w-6 place-items-center transition-transform duration-[var(--dur-fast)] ease-[var(--ease-brand)] group-open:rotate-45"
           >
             <Icon name="plus" size={14} strokeWidth={2.1} />
           </span>
@@ -69,7 +69,7 @@ function LinkList({ items }: { items: { label: string; href: string }[] }) {
         <li key={l.href}>
           <Link
             href={l.href}
-            className="-mx-2 inline-flex min-h-11 items-center px-2 text-sm text-white/75 transition-colors duration-300 ease-[var(--ease-brand)] hover:text-white sm:min-h-9"
+            className="-mx-2 inline-flex min-h-11 items-center px-2 text-sm text-white/75 transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:text-white sm:min-h-9"
           >
             {l.label}
           </Link>
@@ -126,7 +126,7 @@ export default function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition-colors duration-300 ease-[var(--ease-brand)] hover:bg-mint-300 hover:text-teal-900"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:bg-mint-300 hover:text-teal-900"
                   >
                     <span className="sr-only">{s.label}</span>
                     <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

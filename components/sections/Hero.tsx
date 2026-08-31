@@ -206,7 +206,7 @@ export default function Hero() {
                   <span className="sr-only">Ir a la diapositiva {i + 1}</span>
                   <span
                     aria-hidden="true"
-                    className={`block h-2.5 rounded-full transition-all duration-300 ${
+                    className={`block h-2.5 rounded-full transition-all duration-[var(--dur-fast)] ease-[var(--ease-brand)] ${
                       i === index ? "w-8 bg-white" : "w-2.5 bg-white/60"
                     }`}
                   />

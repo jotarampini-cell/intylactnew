@@ -16,7 +16,7 @@ export default function Breadcrumbs({
               {item.href && !last ? (
                 <Link
                   href={item.href}
-                  className="-mx-1 inline-flex min-h-11 items-center px-1 transition-colors duration-300 ease-[var(--ease-brand)] hover:text-teal-900"
+                  className="-mx-1 inline-flex min-h-11 items-center px-1 transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:text-teal-900"
                 >
                   {item.label}
                 </Link>

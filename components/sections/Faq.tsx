@@ -64,7 +64,7 @@ export default function Faq() {
                 {f.q}
                 <span
                   aria-hidden="true"
-                  className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-teal-900/8 transition-transform duration-300 group-open:rotate-45"
+                  className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-teal-900/8 transition-transform duration-[var(--dur-fast)] ease-[var(--ease-brand)] group-open:rotate-45"
                 >
                   <Icon name="plus" size={14} />
                 </span>

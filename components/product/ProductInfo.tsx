@@ -89,7 +89,7 @@ export default function ProductInfo({ product: p }: { product: Product }) {
         </div>
         <a
           href="/contacto"
-          className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-teal-900 px-6 font-heading text-[15px] font-semibold text-white transition-[transform,background-color] duration-300 ease-[var(--ease-brand)] hover:-translate-y-0.5 hover:bg-coral-500"
+          className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-teal-900 px-6 font-heading text-[15px] font-semibold text-white transition-[transform,background-color] duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:-translate-y-0.5 hover:bg-coral-500"
         >
           Quiero este producto
         </a>
@@ -112,7 +112,7 @@ export default function ProductInfo({ product: p }: { product: Product }) {
               {f.q}
               <span
                 aria-hidden="true"
-                className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-teal-900/8 transition-transform duration-300 ease-[var(--ease-brand)] group-open:rotate-45"
+                className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-teal-900/8 transition-transform duration-[var(--dur-fast)] ease-[var(--ease-brand)] group-open:rotate-45"
               >
                 <Icon name="plus" size={13} strokeWidth={2.2} />
               </span>

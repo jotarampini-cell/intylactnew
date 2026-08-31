@@ -25,7 +25,7 @@ export default function ProductGallery({
   if (shots.length === 0) {
     return (
       <div
-        className={`grid aspect-square place-items-center rounded-[1.5rem] bg-gradient-to-br ${accent} sm:rounded-[2rem]`}
+        className={`grid aspect-square place-items-center rounded-[16px] bg-gradient-to-br ${accent} sm:rounded-[20px]`}
       >
         <span className="font-heading text-sm font-medium text-teal-900/45">
           Imagen próximamente
@@ -37,7 +37,7 @@ export default function ProductGallery({
   return (
     <div>
       <div
-        className={`group relative aspect-square overflow-hidden rounded-[1.5rem] bg-gradient-to-br ${accent} sm:rounded-[2rem]`}
+        className={`group relative aspect-square overflow-hidden rounded-[16px] bg-gradient-to-br ${accent} sm:rounded-[20px]`}
       >
         {shots.map((src, i) => (
           <Image
@@ -64,7 +64,7 @@ export default function ProductGallery({
                 type="button"
                 onClick={() => setActive(i)}
                 aria-current={i === active}
-                className={`grid h-[72px] w-[72px] place-items-center overflow-hidden rounded-2xl bg-gradient-to-br ${accent} transition-all duration-300 ease-[var(--ease-brand)] ${
+                className={`grid h-[72px] w-[72px] place-items-center overflow-hidden rounded-2xl bg-gradient-to-br ${accent} transition-all duration-[var(--dur-fast)] ease-[var(--ease-brand)] ${
                   i === active
                     ? "ring-2 ring-teal-900 ring-offset-2"
                     : "opacity-65 hover:opacity-100"

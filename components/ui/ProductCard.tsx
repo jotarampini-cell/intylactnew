@@ -24,7 +24,7 @@ export default function ProductCard({
   return (
     <Link
       href={`/tienda/${p.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] bg-white shadow-[0_4px_24px_rgba(0,48,60,.08)] transition-[transform,box-shadow] duration-300 ease-[var(--ease-brand)] hover:-translate-y-1.5 hover:shadow-[0_22px_50px_rgba(0,48,60,.16)] sm:rounded-[1.75rem]"
+      className="group flex h-full flex-col overflow-hidden rounded-[16px] bg-white shadow-[0_4px_24px_rgba(0,48,60,.08)] transition-[transform,box-shadow] duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:-translate-y-1.5 hover:shadow-[0_22px_50px_rgba(0,48,60,.16)] sm:rounded-[18px]"
     >
       <div
         className={`relative grid aspect-square place-items-center overflow-hidden bg-gradient-to-br ${p.accent}`}
@@ -107,7 +107,7 @@ export default function ProductCard({
           )}
         </div>
 
-        <span className="mt-3 inline-flex items-center justify-center rounded-full bg-teal-900 px-5 py-2.5 font-heading text-sm font-semibold text-white transition-colors duration-300 ease-[var(--ease-brand)] group-hover:bg-coral-500">
+        <span className="mt-3 inline-flex items-center justify-center rounded-full bg-teal-900 px-5 py-2.5 font-heading text-sm font-semibold text-white transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] group-hover:bg-coral-500">
           Ver producto
         </span>
       </div>

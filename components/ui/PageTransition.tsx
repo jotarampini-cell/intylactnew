@@ -13,20 +13,28 @@ import { useEffect, useState } from "react";
  * Skipped entirely under reduced-motion.
  */
 export default function PageTransition() {
-  const [phase, setPhase] = useState<"in" | "out" | "gone">("in");
+  /* Reduced-motion is resolved in the initial state rather than with setState
+     inside the effect, which would cause a second render just to undo the
+     first. The initialiser only runs on the client. */
+  const [phase, setPhase] = useState<"in" | "out" | "gone">(() =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "gone"
+      : "in",
+  );
 
+  /* Runs once. Depending on `phase` here would reschedule both timers each time
+     the phase advanced, restarting the fade instead of finishing it. */
+  const skipped = phase === "gone";
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setPhase("gone");
-      return;
-    }
+    if (skipped) return;
     const fade = window.setTimeout(() => setPhase("out"), 260);
     const remove = window.setTimeout(() => setPhase("gone"), 1000);
     return () => {
       window.clearTimeout(fade);
       window.clearTimeout(remove);
     };
-  }, []);
+  }, [skipped]);
 
   if (phase === "gone") return null;
 

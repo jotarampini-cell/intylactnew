@@ -76,7 +76,7 @@ export default function Testimonials() {
             className="w-[76vw] max-w-[310px] shrink-0 snap-center sm:w-auto sm:max-w-none"
           >
             <Reveal delay={i * 110} className="h-full">
-              <figure className="flex h-full flex-col rounded-[1.5rem] bg-white p-6 shadow-[0_4px_22px_rgba(0,48,60,.07)] sm:rounded-[1.75rem] sm:p-8">
+              <figure className="flex h-full flex-col rounded-[16px] bg-white p-6 shadow-[0_4px_22px_rgba(0,48,60,.07)] sm:rounded-[18px] sm:p-8">
                 <Stars />
                 <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-teal-900/85 sm:text-base">
                   <p>“{q.quote}”</p>

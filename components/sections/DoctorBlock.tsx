@@ -33,7 +33,7 @@ export default function DoctorBlock() {
 
         {/* SWAP-IN POINT: /public/team/dr-navarro.jpg */}
         <figure className="relative mx-auto w-full max-w-[420px]">
-          <div className="grid aspect-[4/3] place-items-center rounded-[1.5rem] border-4 border-mint-300 bg-white/45 sm:aspect-[4/5] sm:rounded-[2rem]">
+          <div className="grid aspect-[4/3] place-items-center rounded-[16px] border-4 border-mint-300 bg-white/45 sm:aspect-[4/5] sm:rounded-[20px]">
             <span className="font-heading text-sm font-medium text-teal-900/55">
               Retrato
             </span>

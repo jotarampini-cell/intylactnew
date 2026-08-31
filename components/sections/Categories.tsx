@@ -45,9 +45,9 @@ export default function Categories() {
               <Reveal delay={i * 90} className="h-full">
                 <Link
                   href={`/tienda?categoria=${c.id}`}
-                  className={`group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] bg-gradient-to-br ${c.accent} p-5 transition-[transform,box-shadow] duration-300 ease-[var(--ease-brand)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(0,48,60,.14)] sm:rounded-[1.75rem] sm:p-7`}
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-[14px] bg-gradient-to-br ${c.accent} p-5 transition-[transform,box-shadow] duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(0,48,60,.14)] sm:rounded-[18px] sm:p-7`}
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/70 transition-transform duration-300 ease-[var(--ease-brand)] group-hover:scale-110 sm:h-14 sm:w-14 sm:rounded-2xl">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/70 transition-transform duration-[var(--dur-fast)] ease-[var(--ease-brand)] group-hover:scale-110 sm:h-14 sm:w-14 sm:rounded-2xl">
                     <Icon name={icons[c.id]} size={24} className="text-teal-900" />
                   </span>
 
@@ -62,7 +62,7 @@ export default function Categories() {
                     <Icon
                       name="arrow-right"
                       size={15}
-                      className="transition-transform duration-300 ease-[var(--ease-brand)] group-hover:translate-x-1"
+                      className="transition-transform duration-[var(--dur-fast)] ease-[var(--ease-brand)] group-hover:translate-x-1"
                     />
                   </span>
                 </Link>

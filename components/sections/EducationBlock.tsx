@@ -10,7 +10,7 @@ export default function EducationBlock() {
       className="overflow-hidden"
     >
       <div className="grid items-center gap-6 sm:gap-10 lg:grid-cols-2">
-        <div className="rounded-[1.5rem] bg-mint-300 p-6 sm:rounded-[2rem] sm:p-10">
+        <div className="rounded-[16px] bg-mint-300 p-6 sm:rounded-[20px] sm:p-10">
           <h2
             id="educacion-titulo"
             className="font-heading text-[clamp(1.6rem,3.4vw,2.4rem)] font-bold leading-tight"
@@ -32,7 +32,7 @@ export default function EducationBlock() {
 
         {/* SWAP-IN POINT: replace with <Image src="/education/probioticos.jpg" …> */}
         <div className="relative">
-          <div className="grid aspect-[16/10] place-items-center rounded-[1.5rem] bg-coral-200 sm:aspect-[4/3] sm:rounded-[2rem]">
+          <div className="grid aspect-[16/10] place-items-center rounded-[16px] bg-coral-200 sm:aspect-[4/3] sm:rounded-[20px]">
             <span className="font-heading text-sm font-medium text-teal-900/55">
               Imagen editorial
             </span>

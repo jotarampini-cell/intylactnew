@@ -36,7 +36,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ease-[var(--ease-brand)] ${
+      className={`sticky top-0 z-50 w-full transition-all duration-[var(--dur-fast)] ease-[var(--ease-brand)] ${
         scrolled
           ? "bg-cream/95 shadow-[0_2px_20px_rgba(0,48,60,0.08)] backdrop-blur"
           : "bg-transparent"
@@ -61,7 +61,7 @@ export default function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-heading text-[11px] font-medium uppercase tracking-[0.08em] text-teal-900 transition-colors duration-300 ease-[var(--ease-brand)] hover:text-coral-500"
+                    className="font-heading text-[11px] font-medium uppercase tracking-[0.08em] text-teal-900 transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:text-coral-500"
                   >
                     {link.label}
                   </Link>
@@ -131,7 +131,7 @@ export default function Header() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-12 items-center justify-between rounded-xl px-3 font-heading text-base font-medium text-teal-900 transition-colors duration-300 ease-[var(--ease-brand)] hover:bg-teal-900/5 active:bg-teal-900/10"
+                  className="flex min-h-12 items-center justify-between rounded-xl px-3 font-heading text-base font-medium text-teal-900 transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:bg-teal-900/5 active:bg-teal-900/10"
                 >
                   {link.label}
                   <Icon name="chevron-right" size={16} className="text-teal-900/30" />

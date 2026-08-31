@@ -41,8 +41,11 @@ export default function SectionShell({
       style={gradient ? { background: gradient } : undefined}
       {...rest}
     >
+      {/* Vertical rhythm caps at 80px rather than 112px: the taller spacing
+          pushed every section past a full viewport, which is what made the page
+          feel sparse next to denser retail sites. */}
       <div
-        className={`mx-auto ${widths[width]} px-[22px] py-[clamp(3.5rem,8vw,7rem)]`}
+        className={`mx-auto ${widths[width]} px-[22px] py-[clamp(2.75rem,6vw,5rem)]`}
       >
         {children}
       </div>

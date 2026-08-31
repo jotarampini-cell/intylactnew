@@ -63,7 +63,7 @@ export default async function TiendaPage({
                 <Link
                   href="/tienda"
                   aria-current={!active ? "page" : undefined}
-                  className={`inline-flex min-h-11 items-center rounded-full px-5 font-heading text-sm font-semibold transition-colors duration-300 ease-[var(--ease-brand)] ${
+                  className={`inline-flex min-h-11 items-center rounded-full px-5 font-heading text-sm font-semibold transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] ${
                     !active
                       ? "bg-teal-900 text-white"
                       : "bg-white text-teal-900 hover:bg-teal-900/8"
@@ -79,7 +79,7 @@ export default async function TiendaPage({
                     <Link
                       href={`/tienda?categoria=${c.id}`}
                       aria-current={on ? "page" : undefined}
-                      className={`inline-flex min-h-11 items-center rounded-full px-5 font-heading text-sm font-semibold transition-colors duration-300 ease-[var(--ease-brand)] ${
+                      className={`inline-flex min-h-11 items-center rounded-full px-5 font-heading text-sm font-semibold transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] ${
                         on
                           ? "bg-teal-900 text-white"
                           : "bg-white text-teal-900 hover:bg-teal-900/8"
@@ -108,7 +108,7 @@ export default async function TiendaPage({
               ))}
             </ul>
           ) : (
-            <div className="mt-10 rounded-[1.5rem] bg-white p-10 text-center">
+            <div className="mt-10 rounded-[16px] bg-white p-10 text-center">
               <p className="font-heading text-lg font-semibold">
                 Aún no hay productos en esta categoría
               </p>
@@ -118,7 +118,7 @@ export default async function TiendaPage({
               </p>
               <Link
                 href="/tienda"
-                className="mt-6 inline-flex min-h-12 items-center rounded-full bg-teal-900 px-7 font-heading text-[15px] font-semibold text-white transition-colors duration-300 ease-[var(--ease-brand)] hover:bg-coral-500"
+                className="mt-6 inline-flex min-h-12 items-center rounded-full bg-teal-900 px-7 font-heading text-[15px] font-semibold text-white transition-colors duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:bg-coral-500"
               >
                 Ver todo
               </Link>

@@ -21,16 +21,20 @@ export default function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
+
+  /* Reduced-motion is resolved lazily in the initial state rather than via
+     setState inside the effect: that avoided a second render, and starting
+     `shown` at true means the content is never briefly hidden. The initialiser
+     only runs on the client, so it is safe to touch matchMedia here. */
+  const [shown, setShown] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setShown(true);
-      return;
-    }
+    if (!el || shown) return;
 
     const io = new IntersectionObserver(
       ([entry]) => {
@@ -44,7 +48,7 @@ export default function Reveal({
 
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [shown]);
 
   return (
     <div

@@ -115,7 +115,7 @@ export default async function ProductPage({
             <div className="grid gap-8 lg:grid-cols-2 lg:gap-14">
               {product.ingredients?.length ? (
                 <Reveal>
-                  <div className="h-full rounded-[1.5rem] bg-mint-100 p-7 sm:rounded-[2rem] sm:p-9">
+                  <div className="h-full rounded-[16px] bg-mint-100 p-7 sm:rounded-[20px] sm:p-9">
                     <h3 className="font-heading text-xl font-semibold sm:text-2xl">
                       Qué lleva
                     </h3>
@@ -138,7 +138,7 @@ export default async function ProductPage({
 
               {product.howToUse?.length ? (
                 <Reveal delay={90}>
-                  <div className="h-full rounded-[1.5rem] bg-butter-100 p-7 sm:rounded-[2rem] sm:p-9">
+                  <div className="h-full rounded-[16px] bg-butter-100 p-7 sm:rounded-[20px] sm:p-9">
                     <h3 className="font-heading text-xl font-semibold sm:text-2xl">
                       Cómo se usa
                     </h3>

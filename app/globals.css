@@ -32,9 +32,18 @@
 
   /* Motion.
      One easing curve and a small set of durations used everywhere: the
-     consistency is what reads as "polished", far more than any single effect. */
+     consistency is what reads as "polished", far more than any single effect.
+
+     Two speeds, deliberately split:
+     · --dur-fast (150ms) for anything answering a pointer — hovers, buttons,
+       card lifts. Fast feedback is what reads as "modern"; at 300ms the same
+       interaction feels sluggish.
+     · --dur-slow (400ms) for scroll reveals and panel openings, where the eye
+       needs to follow the movement rather than just register a state change. */
   --ease-brand: cubic-bezier(0.62, 0.05, 0.24, 1);
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 150ms;
+  --dur-slow: 400ms;
   --animate-marquee: marquee 38s linear infinite;
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-shimmer: shimmer 2.2s linear infinite;
