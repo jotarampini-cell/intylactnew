@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SectionShell from "@/components/ui/SectionShell";
 import ScallopDivider from "@/components/ui/ScallopDivider";
 import Reveal from "@/components/ui/Reveal";
@@ -30,16 +30,51 @@ type Reel = {
 };
 
 const reels: Reel[] = [
-  { url: "https://instagram.com/intylact", caption: "Tu rutina de cuidado íntimo", accent: "from-coral-100 to-coral-200" },
-  { url: "https://instagram.com/intylact", caption: "¿Por qué importa el pH?", accent: "from-mint-100 to-mint-300/50" },
-  { url: "https://instagram.com/intylact", caption: "Probióticos, explicados", accent: "from-violet-500/20 to-pink-500/20" },
-  { url: "https://instagram.com/intylact", caption: "Preguntas que nos hacen", accent: "from-butter-100 to-butter-200/70" },
-  { url: "https://instagram.com/intylact", caption: "Detrás de la fórmula", accent: "from-coral-100 to-butter-100" },
+  {
+    url: "https://instagram.com/intylact",
+    video: "/reels/red-flags-higiene.mp4",
+    caption: "Red flags de higiene íntima",
+    accent: "from-coral-100 to-coral-200",
+  },
+  {
+    url: "https://instagram.com/intylact",
+    video: "/reels/detergente-irritacion.mp4",
+    caption: "¿Tu detergente te está irritando?",
+    accent: "from-mint-100 to-mint-300/50",
+  },
+  {
+    url: "https://instagram.com/intylact",
+    video: "/reels/jabon-ropa-intima.mp4",
+    caption: "Tu ropa íntima merece su propio jabón",
+    accent: "from-violet-500/20 to-pink-500/20",
+  },
 ];
 
 function ReelCard({ reel }: { reel: Reel }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const cardRef = useRef<HTMLAnchorElement>(null);
   const [playing, setPlaying] = useState(false);
+
+  /* The <source> is only attached once the card is near the viewport. These
+     files are several MB each; mounting them with the page would download
+     ~18MB before the visitor ever scrolls this far. */
+  const [nearViewport, setNearViewport] = useState(false);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el || nearViewport) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setNearViewport(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "300px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [nearViewport]);
 
   const play = () => {
     const v = videoRef.current;
@@ -56,6 +91,7 @@ function ReelCard({ reel }: { reel: Reel }) {
 
   return (
     <a
+      ref={cardRef}
       href={reel.url}
       target="_blank"
       rel="noopener noreferrer"
@@ -68,12 +104,12 @@ function ReelCard({ reel }: { reel: Reel }) {
       {reel.video ? (
         <video
           ref={videoRef}
-          src={reel.video}
+          src={nearViewport ? reel.video : undefined}
           poster={reel.poster}
           muted
           loop
           playsInline
-          preload="none"
+          preload="metadata"
           className="absolute inset-0 h-full w-full object-cover"
         />
       ) : reel.poster ? (
@@ -142,9 +178,11 @@ export default function InstagramReels() {
         </div>
       </Reveal>
 
-      <ul className="mt-8 -mx-[22px] flex snap-x snap-mandatory gap-3 overflow-x-auto px-[22px] pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-5">
+      {/* Three columns from sm up — the rail is capped at the number of real
+          reels, so a wider grid would leave gaps. */}
+      <ul className="mt-8 -mx-[22px] flex snap-x snap-mandatory gap-3 overflow-x-auto px-[22px] pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0">
         {reels.map((r, i) => (
-          <li key={i} className="w-[46vw] max-w-[190px] shrink-0 snap-center sm:w-auto sm:max-w-none">
+          <li key={i} className="w-[58vw] max-w-[230px] shrink-0 snap-center sm:w-auto sm:max-w-none">
             <Reveal delay={i * 70}>
               <ReelCard reel={r} />
             </Reveal>
