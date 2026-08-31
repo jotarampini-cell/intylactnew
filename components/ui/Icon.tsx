@@ -48,7 +48,9 @@ export type IconName =
   | "star"
   | "play"
   | "heart"
-  | "sparkle";
+  | "sparkle"
+  | "sound-on"
+  | "sound-off";
 
 const paths: Record<IconName, React.ReactNode> = {
   "arrow-right": <path d="M4.5 12h14M12.5 5.5L19 12l-6.5 6.5" />,
@@ -166,6 +168,20 @@ const paths: Record<IconName, React.ReactNode> = {
   ),
   sparkle: (
     <path d="M12 3.2l1.9 5.7 5.7 1.9-5.7 1.9-1.9 5.7-1.9-5.7-5.7-1.9 5.7-1.9z" />
+  ),
+
+  "sound-on": (
+    <>
+      <path d="M11 5.2L6.6 8.8H3.6v6.4h3l4.4 3.6z" />
+      <path d="M15.4 9.2a4 4 0 010 5.6" />
+      <path d="M18 6.6a7.6 7.6 0 010 10.8" />
+    </>
+  ),
+  "sound-off": (
+    <>
+      <path d="M11 5.2L6.6 8.8H3.6v6.4h3l4.4 3.6z" />
+      <path d="M15.6 10.2l4.4 3.6M20 10.2l-4.4 3.6" />
+    </>
   ),
 
   // Filled marks
