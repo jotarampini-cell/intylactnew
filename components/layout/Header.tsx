@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { navLinks } from "@/lib/products";
+import { navLinks, categories } from "@/lib/products";
 import Logo from "@/components/ui/Logo";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import ShopMenu from "@/components/layout/ShopMenu";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -47,19 +48,25 @@ export default function Header() {
           <Logo className="h-8 w-auto" priority />
         </Link>
 
-        {/* Desktop navigation */}
+        {/* Desktop navigation — "Tienda" expands into the mega-menu */}
         <nav aria-label="Principal" className="hidden xl:block">
           <ul className="flex items-center gap-6">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="font-heading text-[11px] font-medium uppercase tracking-[0.08em] text-teal-900 transition-colors hover:text-coral-500"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((link) =>
+              link.href === "/tienda" ? (
+                <li key={link.href}>
+                  <ShopMenu />
+                </li>
+              ) : (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="font-heading text-[11px] font-medium uppercase tracking-[0.08em] text-teal-900 transition-colors duration-300 ease-[var(--ease-brand)] hover:text-coral-500"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ),
+            )}
           </ul>
         </nav>
 
@@ -104,18 +111,47 @@ export default function Header() {
       <div
         id="menu-movil"
         hidden={!open}
-        className="border-t border-teal-900/10 bg-cream xl:hidden"
+        className="max-h-[calc(100dvh-72px)] overflow-y-auto border-t border-teal-900/10 bg-cream xl:hidden"
       >
-        <nav aria-label="Principal móvil" className="px-[22px] py-4">
-          <ul className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <li key={link.href}>
+        <nav aria-label="Principal móvil" className="px-[22px] pb-6 pt-4">
+          {/* Category shortcuts, so the catalogue is one tap away */}
+          <p className="font-heading text-[11px] font-semibold uppercase tracking-[0.16em] text-teal-900/45">
+            Comprar por categoría
+          </p>
+          <ul className="mt-3 grid grid-cols-2 gap-2">
+            {categories.map((c, i) => (
+              <li
+                key={c.id}
+                className="motion-safe:animate-[var(--animate-fade-up)]"
+                style={{ animationDelay: `${i * 45}ms` }}
+              >
+                <Link
+                  href={`/tienda?categoria=${c.id}`}
+                  onClick={() => setOpen(false)}
+                  className={`flex min-h-14 items-center rounded-xl bg-gradient-to-br ${c.accent} px-4 font-heading text-[13px] font-semibold leading-tight text-teal-900`}
+                >
+                  {c.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <ul className="mt-5 flex flex-col gap-1 border-t border-teal-900/10 pt-4">
+            {navLinks.map((link, i) => (
+              <li
+                key={link.href}
+                className="motion-safe:animate-[var(--animate-fade-up)]"
+                style={{ animationDelay: `${(categories.length + i) * 40}ms` }}
+              >
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-12 items-center rounded-xl px-3 font-heading text-base font-medium text-teal-900 transition-colors hover:bg-teal-900/5 active:bg-teal-900/10"
+                  className="flex min-h-12 items-center justify-between rounded-xl px-3 font-heading text-base font-medium text-teal-900 transition-colors duration-300 ease-[var(--ease-brand)] hover:bg-teal-900/5 active:bg-teal-900/10"
                 >
                   {link.label}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-teal-900/30">
+                    <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </Link>
               </li>
             ))}

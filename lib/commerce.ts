@@ -6,15 +6,19 @@
 
 import type { Product } from "./products";
 
-const mxn = new Intl.NumberFormat("es-MX", {
+/**
+ * Prices are USD, matching the live store at intylact.com/tienda.
+ * Two decimals, since the catalogue uses cents ($2.99, $134.99).
+ */
+const usd = new Intl.NumberFormat("en-US", {
   style: "currency",
-  currency: "MXN",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0,
+  currency: "USD",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
 });
 
 export function formatPrice(value: number): string {
-  return mxn.format(value);
+  return usd.format(value);
 }
 
 /** Whole-percent discount, or null when the product isn't on sale. */
