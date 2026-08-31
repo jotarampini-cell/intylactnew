@@ -6,6 +6,7 @@ import ScallopDivider from "@/components/ui/ScallopDivider";
 import Reveal from "@/components/ui/Reveal";
 import Carousel from "@/components/ui/Carousel";
 import ProductCard from "@/components/ui/ProductCard";
+import Icon from "@/components/ui/Icon";
 
 /**
  * Product line.
@@ -71,9 +72,7 @@ export default function ProductGrid() {
                 className={`group flex h-full items-center gap-4 rounded-[1.25rem] bg-gradient-to-br ${p.accent} p-4 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,48,60,.12)] sm:rounded-[1.5rem] sm:p-5`}
               >
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-white/70 sm:h-14 sm:w-14">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-teal-900">
-                    <path d="M12 3.5s6 6.2 6 10.1A6 6 0 016 13.6C6 9.7 12 3.5 12 3.5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                  </svg>
+                  <Icon name="drop" size={24} className="text-teal-900" />
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block font-heading text-[15px] font-semibold leading-snug sm:text-base">
@@ -83,16 +82,11 @@ export default function ProductGrid() {
                     {p.tagline}
                   </span>
                 </span>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                  className="shrink-0 text-teal-900/40 transition-transform duration-300 group-hover:translate-x-1 sm:hidden"
-                >
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <Icon
+                  name="chevron-right"
+                  size={18}
+                  className="shrink-0 text-teal-900/40 transition-transform duration-300 ease-[var(--ease-brand)] group-hover:translate-x-1 sm:hidden"
+                />
               </Link>
             </Reveal>
           </li>

@@ -1,6 +1,7 @@
 import SectionShell from "@/components/ui/SectionShell";
 import ScallopDivider from "@/components/ui/ScallopDivider";
 import Reveal from "@/components/ui/Reveal";
+import Icon from "@/components/ui/Icon";
 
 /**
  * PLACEHOLDER CONTENT — these are illustrative, not real customer quotes.
@@ -33,9 +34,7 @@ function Stars() {
   return (
     <span className="flex gap-0.5" role="img" aria-label="5 de 5 estrellas">
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="text-butter-200">
-          <path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z" />
-        </svg>
+        <Icon key={i} name="star" size={15} className="text-butter-200" />
       ))}
     </span>
   );

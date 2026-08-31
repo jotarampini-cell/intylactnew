@@ -4,6 +4,7 @@ import { useState } from "react";
 import SectionShell from "@/components/ui/SectionShell";
 import ScallopDivider from "@/components/ui/ScallopDivider";
 import Reveal from "@/components/ui/Reveal";
+import Icon from "@/components/ui/Icon";
 
 /**
  * Brand video.
@@ -56,9 +57,7 @@ export default function VideoFeature() {
               {points.map((p) => (
                 <li key={p} className="flex items-start gap-3">
                   <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-mint-300">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-teal-900">
-                      <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    <Icon name="check" size={13} strokeWidth={2.6} className="text-teal-900" />
                   </span>
                   <span className="text-[15px] leading-relaxed text-teal-900/85">{p}</span>
                 </li>
@@ -118,9 +117,7 @@ export default function VideoFeature() {
                         aria-hidden="true"
                         className="absolute inset-0 rounded-full bg-white/60 motion-safe:animate-[var(--animate-pulse-ring)]"
                       />
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="relative ml-1 text-teal-900">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+                      <Icon name="play" size={26} className="relative ml-1 text-teal-900" />
                     </span>
                   </button>
                 ) : (

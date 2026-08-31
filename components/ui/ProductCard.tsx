@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/products";
 import { BADGE_LABELS, discountPercent, formatPrice } from "@/lib/commerce";
+import Icon from "@/components/ui/Icon";
 
 /**
  * Product card used by every rail.
@@ -82,17 +83,12 @@ export default function ProductCard({
           <span className="mt-3 flex items-center gap-1.5">
             <span className="flex" role="img" aria-label={`${p.rating} de 5 estrellas`}>
               {Array.from({ length: 5 }).map((_, i) => (
-                <svg
+                <Icon
                   key={i}
-                  width="13"
-                  height="13"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
+                  name="star"
+                  size={13}
                   className={i < Math.round(p.rating!) ? "text-butter-200" : "text-teal-900/15"}
-                >
-                  <path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z" />
-                </svg>
+                />
               ))}
             </span>
             <span className="text-[12px] text-teal-900/55">({p.reviewCount})</span>

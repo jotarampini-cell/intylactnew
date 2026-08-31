@@ -1,6 +1,7 @@
 import SectionShell from "@/components/ui/SectionShell";
 import ScallopDivider from "@/components/ui/ScallopDivider";
 import Reveal from "@/components/ui/Reveal";
+import Icon from "@/components/ui/Icon";
 
 const actives = [
   {
@@ -74,10 +75,7 @@ export default function Ingredients() {
                 className={`flex h-full flex-col rounded-[1.5rem] bg-gradient-to-br ${a.tint} p-6 transition-transform duration-500 hover:-translate-y-1.5 sm:rounded-[1.75rem] sm:p-7`}
               >
                 <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white/75 sm:h-12 sm:w-12">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-teal-900">
-                    <path d="M5 19c0-8 5-13 14-13 0 9-5 14-13 14H5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                    <path d="M5 19c3-4 6-6 10-7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
+                  <Icon name="leaf" size={22} className="text-teal-900" />
                 </span>
                 <h3 className="mt-4 font-heading text-lg font-semibold sm:mt-5">{a.name}</h3>
                 <p className="mt-1 font-heading text-[11px] font-semibold uppercase tracking-wider text-teal-900/55 sm:text-xs">

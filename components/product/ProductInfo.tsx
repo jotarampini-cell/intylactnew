@@ -1,6 +1,7 @@
 import type { Product } from "@/lib/products";
 import { getCategory } from "@/lib/products";
 import { BADGE_LABELS, discountPercent, formatPrice } from "@/lib/commerce";
+import Icon from "@/components/ui/Icon";
 
 /**
  * Right-hand column of the product page: identity, price, benefits, and the
@@ -62,9 +63,7 @@ export default function ProductInfo({ product: p }: { product: Product }) {
           {p.benefits.map((b) => (
             <li key={b} className="flex items-start gap-3">
               <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-mint-300">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-teal-900">
-                  <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <Icon name="check" size={11} strokeWidth={2.8} className="text-teal-900" />
               </span>
               <span className="text-[15px] leading-relaxed text-teal-900/85">{b}</span>
             </li>
@@ -76,10 +75,7 @@ export default function ProductInfo({ product: p }: { product: Product }) {
       <div className="mt-8 rounded-2xl border-2 border-dashed border-teal-900/15 bg-teal-900/[0.03] p-5">
         <div className="flex items-center gap-3">
           <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-butter-200">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-teal-900">
-              <path d="M6 8h12l-1 11a2 2 0 01-2 1.8H9A2 2 0 017 19z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-              <path d="M9.5 8V6.5a2.5 2.5 0 015 0V8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            </svg>
+            <Icon name="bag" size={20} className="text-teal-900" />
           </span>
           <div>
             <p className="font-heading text-[15px] font-semibold">
@@ -118,9 +114,7 @@ export default function ProductInfo({ product: p }: { product: Product }) {
                 aria-hidden="true"
                 className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-teal-900/8 transition-transform duration-300 ease-[var(--ease-brand)] group-open:rotate-45"
               >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
-                </svg>
+                <Icon name="plus" size={13} strokeWidth={2.2} />
               </span>
             </summary>
             <p className="pb-4 text-[14px] leading-relaxed text-teal-900/70">{f.a}</p>

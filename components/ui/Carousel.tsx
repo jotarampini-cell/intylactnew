@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
+import Icon from "@/components/ui/Icon";
 
 /**
  * Horizontal snap-scroller shared by every product rail.
@@ -73,9 +74,7 @@ export default function Carousel({
               canPrev ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Icon name="chevron-left" size={18} />
           </button>
           <button
             type="button"
@@ -86,9 +85,7 @@ export default function Carousel({
               canNext ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Icon name="chevron-right" size={18} />
           </button>
         </>
       )}

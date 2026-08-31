@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 import Aurora from "@/components/ui/Aurora";
 import ScallopDivider from "@/components/ui/ScallopDivider";
+import Icon from "@/components/ui/Icon";
 
 type Slide = {
   eyebrow: string;
@@ -138,9 +139,7 @@ export default function Hero() {
           <ul className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-1.5 sm:mt-10 sm:gap-x-6">
             {["pH balanceado", "Vegano", "Sin alcohol", "Dermatológicamente probado"].map((t) => (
               <li key={t} className="flex items-center gap-1.5 text-[13px] font-medium text-white/95">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <Icon name="check" size={15} strokeWidth={2.4} />
                 {t}
               </li>
             ))}
@@ -182,9 +181,7 @@ export default function Hero() {
             className="grid h-11 w-11 place-items-center rounded-full bg-white/85 text-teal-900 backdrop-blur transition-colors hover:bg-white"
           >
             <span className="sr-only">Anterior</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Icon name="chevron-left" size={18} />
           </button>
           <button
             type="button"
@@ -192,9 +189,7 @@ export default function Hero() {
             className="grid h-11 w-11 place-items-center rounded-full bg-white/85 text-teal-900 backdrop-blur transition-colors hover:bg-white"
           >
             <span className="sr-only">Siguiente</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Icon name="chevron-right" size={18} />
           </button>
 
           <ul className="ml-1 flex items-center">

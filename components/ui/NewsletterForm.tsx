@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import Icon from "@/components/ui/Icon";
 
 /**
  * Newsletter capture.
@@ -33,9 +34,7 @@ export default function NewsletterForm() {
         className="flex items-center gap-3 rounded-2xl bg-white/10 px-5 py-4"
       >
         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-mint-300">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-teal-900">
-            <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <Icon name="check" size={17} strokeWidth={2.6} className="text-teal-900" />
         </span>
         <p className="text-sm text-white/90">
           ¡Listo! Te escribiremos pronto.

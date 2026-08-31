@@ -5,14 +5,15 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { categories, products } from "@/lib/products";
 import { formatPrice } from "@/lib/commerce";
+import Icon, { type IconName } from "@/components/ui/Icon";
 
-const icons: Record<string, React.ReactNode> = {
-  suplemento: <><rect x="3.5" y="8" width="17" height="8" rx="4" transform="rotate(-30 12 12)" /><path d="M9 15l6-6" /></>,
-  jabon: <><rect x="4" y="9" width="16" height="11" rx="3" /><path d="M8 9V7.5a4 4 0 018 0V9" /></>,
-  toallitas: <><rect x="4" y="6" width="16" height="12" rx="2.5" /><path d="M8 10h8M8 14h5" /></>,
-  gel: <><path d="M12 3.5s6 6.2 6 10.1A6 6 0 016 13.6C6 9.7 12 3.5 12 3.5z" /><path d="M9.5 14.5a2.6 2.6 0 002.5 2.2" /></>,
-  copa: <><path d="M6 5h12l-1.4 9a4.7 4.7 0 01-9.2 0z" /><path d="M12 18v3M8.5 21h7" /></>,
-  pack: <><path d="M4 8l8-4 8 4v8l-8 4-8-4z" /><path d="M4 8l8 4 8-4M12 12v8" /></>,
+const icons: Record<string, IconName> = {
+  suplemento: "capsule",
+  jabon: "soap",
+  toallitas: "wipes",
+  gel: "drop",
+  copa: "cup",
+  pack: "pack",
 };
 
 /**
@@ -64,16 +65,12 @@ export default function ShopMenu() {
         className="inline-flex items-center gap-1 font-heading text-[11px] font-medium uppercase tracking-[0.08em] text-teal-900 transition-colors duration-300 ease-[var(--ease-brand)] hover:text-coral-500"
       >
         Tienda
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
+        <Icon
+          name="chevron-down"
+          size={12}
+          strokeWidth={2.2}
           className={`transition-transform duration-300 ease-[var(--ease-brand)] ${open ? "rotate-180" : ""}`}
-        >
-          <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        />
       </Link>
 
       <div
@@ -99,9 +96,7 @@ export default function ShopMenu() {
                     className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors duration-300 ease-[var(--ease-brand)] hover:bg-cream"
                   >
                     <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-mint-100 transition-transform duration-300 ease-[var(--ease-brand)] group-hover:scale-110">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-teal-900">
-                        {icons[c.id]}
-                      </svg>
+                      <Icon name={icons[c.id]} size={18} className="text-teal-900" />
                     </span>
                     <span className="min-w-0">
                       <span className="block font-heading text-[13px] font-semibold leading-tight text-teal-900">
@@ -121,9 +116,7 @@ export default function ShopMenu() {
               className="mt-4 inline-flex items-center gap-1.5 font-heading text-[13px] font-semibold text-coral-500 transition-colors duration-300 ease-[var(--ease-brand)] hover:text-teal-900"
             >
               Ver todos los productos
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <Icon name="arrow-right" size={14} />
             </Link>
           </div>
 

@@ -6,6 +6,7 @@ import { navLinks, categories } from "@/lib/products";
 import Logo from "@/components/ui/Logo";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import ShopMenu from "@/components/layout/ShopMenu";
+import Icon from "@/components/ui/Icon";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -86,23 +87,7 @@ export default function Header() {
             className="-mr-1.5 inline-flex h-12 w-12 items-center justify-center rounded-full text-teal-900 transition-colors hover:bg-teal-900/5 xl:hidden"
           >
             <span className="sr-only">{open ? "Cerrar menú" : "Abrir menú"}</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              {open ? (
-                <path
-                  d="M6 6l12 12M18 6L6 18"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              ) : (
-                <path
-                  d="M3 6h18M3 12h18M3 18h18"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              )}
-            </svg>
+            <Icon name={open ? "close" : "menu"} size={24} strokeWidth={1.9} />
           </button>
         </div>
       </div>
@@ -149,9 +134,7 @@ export default function Header() {
                   className="flex min-h-12 items-center justify-between rounded-xl px-3 font-heading text-base font-medium text-teal-900 transition-colors duration-300 ease-[var(--ease-brand)] hover:bg-teal-900/5 active:bg-teal-900/10"
                 >
                   {link.label}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-teal-900/30">
-                    <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <Icon name="chevron-right" size={16} className="text-teal-900/30" />
                 </Link>
               </li>
             ))}

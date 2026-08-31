@@ -9,6 +9,7 @@ import ScallopDivider from "@/components/ui/ScallopDivider";
 import ProductGallery from "@/components/product/ProductGallery";
 import ProductInfo from "@/components/product/ProductInfo";
 import Breadcrumbs from "@/components/product/Breadcrumbs";
+import Icon from "@/components/ui/Icon";
 import { products, getProduct, getRelated, getCategory } from "@/lib/products";
 
 export function generateStaticParams() {
@@ -36,10 +37,10 @@ export async function generateMetadata({
 }
 
 const trust = [
-  { label: "Fórmulas veganas", d: "M5 19c0-8 5-13 14-13 0 9-5 14-13 14H5z" },
-  { label: "pH balanceado", d: "M12 3.5s6 6.2 6 10.1A6 6 0 016 13.6C6 9.7 12 3.5 12 3.5z" },
-  { label: "Sin parabenos", d: "M12 3l7 3v5.5c0 4.4-2.9 8.2-7 9.5-4.1-1.3-7-5.1-7-9.5V6z" },
-  { label: "Libre de crueldad", d: "M9 11c0-3.5-1-7-2.5-7S4 6 5 11M15 11c0-3.5 1-7 2.5-7S20 6 19 11M6 14a6 6 0 0112 0v3a3 3 0 01-3 3H9a3 3 0 01-3-3z" },
+  { label: "Fórmulas veganas", icon: "leaf" as const },
+  { label: "pH balanceado", icon: "drop" as const },
+  { label: "Sin parabenos", icon: "shield" as const },
+  { label: "Libre de crueldad", icon: "rabbit" as const },
 ];
 
 export default async function ProductPage({
@@ -96,20 +97,7 @@ export default async function ProductPage({
           <ul className="mx-auto flex max-w-[1280px] flex-wrap justify-center gap-x-7 gap-y-3 px-[22px] py-7">
             {trust.map((t) => (
               <li key={t.label} className="flex items-center gap-2">
-                <svg
-                  width="19"
-                  height="19"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                  className="shrink-0 text-coral-500"
-                >
-                  <path d={t.d} />
-                </svg>
+                <Icon name={t.icon} size={19} className="shrink-0 text-coral-500" />
                 <span className="text-[13px] font-medium text-teal-900/80">
                   {t.label}
                 </span>

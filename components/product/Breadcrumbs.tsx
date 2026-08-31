@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Icon from "@/components/ui/Icon";
 
 export default function Breadcrumbs({
   items,
@@ -25,9 +26,7 @@ export default function Breadcrumbs({
                 </span>
               )}
               {!last && (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-teal-900/30">
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <Icon name="chevron-right" size={13} className="text-teal-900/30" />
               )}
             </li>
           );

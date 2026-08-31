@@ -2,6 +2,7 @@ import Link from "next/link";
 import { products, navLinks } from "@/lib/products";
 import Logo from "@/components/ui/Logo";
 import NewsletterForm from "@/components/ui/NewsletterForm";
+import Icon from "@/components/ui/Icon";
 
 /**
  * Site footer.
@@ -21,9 +22,9 @@ const socials = [
 ];
 
 const trust = [
-  { label: "Envío a todo México", d: "M3 7h11v8H3zM14 10h4l3 3v2h-7z M7 18a1.6 1.6 0 100-3.2A1.6 1.6 0 007 18zM17.5 18a1.6 1.6 0 100-3.2 1.6 1.6 0 000 3.2z" },
-  { label: "Pago seguro", d: "M12 3l7 3v5.5c0 4.4-2.9 8.2-7 9.5-4.1-1.3-7-5.1-7-9.5V6z M9.2 12.2l2 2 3.6-3.9" },
-  { label: "Fórmulas veganas", d: "M5 19c0-8 5-13 14-13 0 9-5 14-13 14H5z M5 19c3-4 6-6 10-7.5" },
+  { label: "Envío a todo México", icon: "truck" as const },
+  { label: "Pago seguro", icon: "shield" as const },
+  { label: "Fórmulas veganas", icon: "leaf" as const },
 ];
 
 /** Collapsible on phones via <details>; always open from sm up. */
@@ -44,9 +45,7 @@ function LinkGroup({
             aria-hidden="true"
             className="grid h-6 w-6 place-items-center transition-transform duration-300 ease-[var(--ease-brand)] group-open:rotate-45"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-              <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-            </svg>
+            <Icon name="plus" size={14} strokeWidth={2.1} />
           </span>
         </summary>
         <div className="pb-3">{children}</div>
@@ -103,20 +102,7 @@ export default function Footer() {
         <ul className="mx-auto flex max-w-[1280px] flex-wrap justify-center gap-x-5 gap-y-2 px-[22px] py-4 sm:gap-x-10 sm:py-6">
           {trust.map((t) => (
             <li key={t.label} className="flex items-center gap-2.5">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                className="shrink-0 text-mint-300"
-              >
-                <path d={t.d} />
-              </svg>
+              <Icon name={t.icon} size={20} className="shrink-0 text-mint-300" />
               <span className="text-[13px] font-medium text-white/80">{t.label}</span>
             </li>
           ))}
