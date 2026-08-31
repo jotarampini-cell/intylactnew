@@ -41,7 +41,7 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-[22px] py-4">
         <Link href="/" aria-label="Intylact — Inicio" className="shrink-0">
-          <Logo className="h-8 w-auto text-teal-900" />
+          <Logo className="h-8 w-auto" priority />
         </Link>
 
         {/* Desktop navigation */}

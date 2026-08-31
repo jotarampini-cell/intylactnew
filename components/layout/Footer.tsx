@@ -18,7 +18,7 @@ export default function Footer() {
     >
       <div className="mx-auto grid max-w-[1280px] gap-10 px-[22px] py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo className="h-8 text-white" />
+          <Logo className="h-8" variant="light" />
           <p className="mt-4 max-w-[26ch] text-sm leading-relaxed text-white/80">
             Cuidado íntimo formulado con probióticos e inositol, para el equilibrio
             de tu zona V.

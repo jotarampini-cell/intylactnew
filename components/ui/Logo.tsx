@@ -1,26 +1,42 @@
+import Image from "next/image";
+
 /**
- * Intylact wordmark.
+ * Intylact wordmark — the real brand asset from /public/brand/logo.png.
  *
- * SWAP-IN POINT: this is a text-based placeholder set in the site's heading face
- * so the layout is reviewable now. When you supply the real vector, drop it at
- * /public/logo.svg and replace this component's body with:
+ * The source file is a dark teal wordmark on transparency, which disappears on
+ * dark grounds. `variant="light"` inverts it to near-white via a CSS filter so
+ * the same file works on the violet footer without needing a second asset.
  *
- *   import Image from "next/image";
- *   <Image src="/logo.svg" alt="Intylact" width={160} height={32} priority />
- *
- * Nothing else in the codebase needs to change — Header and Footer both render
+ * If a vector version ever arrives, drop it at /public/brand/logo.svg and change
+ * LOGO_SRC — nothing else needs to change, since Header and Footer both render
  * this component.
  */
-export default function Logo({ className = "" }: { className?: string }) {
+const LOGO_SRC = "/brand/logo.png";
+const LOGO_WIDTH = 248;
+const LOGO_HEIGHT = 58;
+
+type Props = {
+  className?: string;
+  /** "dark" keeps the brand teal; "light" inverts for dark backgrounds */
+  variant?: "dark" | "light";
+  priority?: boolean;
+};
+
+export default function Logo({
+  className = "",
+  variant = "dark",
+  priority = false,
+}: Props) {
   return (
-    <span
-      className={`inline-flex items-baseline font-heading font-semibold tracking-tight ${className}`}
-      style={{ fontSize: "1.6rem", lineHeight: 1 }}
-    >
-      intylact
-      <span aria-hidden="true" className="ml-0.5 text-[0.5em] font-normal align-super">
-        ®
-      </span>
-    </span>
+    <Image
+      src={LOGO_SRC}
+      alt="Intylact"
+      width={LOGO_WIDTH}
+      height={LOGO_HEIGHT}
+      priority={priority}
+      className={`w-auto ${
+        variant === "light" ? "brightness-0 invert" : ""
+      } ${className}`}
+    />
   );
 }

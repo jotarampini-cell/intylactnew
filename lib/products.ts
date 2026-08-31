@@ -10,27 +10,65 @@
 export type Product = {
   slug: string;
   name: string;
+  /** One-line hook shown on the card */
   tagline: string;
-  /** Accent behind the product shot; a Tailwind bg-* utility */
+  /** Longer description for the product page and expanded cards */
+  detail: string;
+  /** Presentation, e.g. "50 ml" */
+  size: string;
+  /** Gradient stops behind the product shot, as Tailwind from-/to- utilities */
   accent: string;
   image: string | null;
   category: "gel" | "jabon" | "suplemento" | "copa";
+  /** Featured products lead the grid and get the large treatment */
+  featured?: boolean;
 };
 
 export const products: Product[] = [
   {
     slug: "gel-hidratante-intimo",
     name: "Gel Hidratante Íntimo",
-    tagline: "Hidratación diaria para tu zona V",
-    accent: "bg-mint-100",
-    image: null,
+    tagline: "Aclarante con prebióticos, ácido hialurónico y ácido láctico",
+    detail:
+      "Hidratación profunda para la zona íntima. Su fórmula con ácido hialurónico retiene la humedad natural, mientras el ácido láctico ayuda a mantener el pH en equilibrio.",
+    size: "50 ml",
+    accent: "from-coral-100 to-coral-200",
+    image: "/products/group-54.webp",
     category: "gel",
+    featured: true,
+  },
+  {
+    slug: "intyprob",
+    name: "IntyProb",
+    tagline: "Probióticos e inositol para tu equilibrio vaginal",
+    detail:
+      "Promueve la salud vaginal, mejora la regularidad digestiva, restaura la flora y el equilibrio del pH, y fortalece el sistema inmunológico.",
+    size: "60 cápsulas",
+    accent: "from-pink-500/15 to-violet-500/15",
+    image: "/products/intyprob.webp",
+    category: "suplemento",
+    featured: true,
+  },
+  {
+    slug: "copas-urinarias",
+    name: "Copas Urinarias Desechables",
+    tagline: "Embudo urinario femenino, listo para usar",
+    detail:
+      "Evita el contacto con superficies en baños públicos. Cartón compostable, con aroma a jazmín y práctico para llevar contigo.",
+    size: "10 piezas",
+    accent: "from-violet-500/15 to-mint-100",
+    image: "/products/group-52.webp",
+    category: "copa",
+    featured: true,
   },
   {
     slug: "jabon-intimo-autoclean",
     name: "Jabón Íntimo Autoclean",
-    tagline: "Limpieza suave que respeta tu pH",
-    accent: "bg-butter-100",
+    tagline: "Limpieza suave que respeta tu pH natural",
+    detail:
+      "Higiene diaria sin resecar. Formulado para cuidar la microbiota de tu zona íntima.",
+    size: "200 ml",
+    accent: "from-mint-100 to-butter-100",
     image: null,
     category: "jabon",
   },
@@ -38,7 +76,10 @@ export const products: Product[] = [
     slug: "jabon-intimo-intensecalm",
     name: "Jabón Íntimo Intensecalm",
     tagline: "Alivio calmante para piel sensible",
-    accent: "bg-coral-100",
+    detail:
+      "Sensación de frescura y calma inmediata, ideal si presentas irritación o sensibilidad.",
+    size: "200 ml",
+    accent: "from-butter-100 to-coral-100",
     image: null,
     category: "jabon",
   },
@@ -46,25 +87,12 @@ export const products: Product[] = [
     slug: "jabon-intimo-tripack",
     name: "Jabón Íntimo TRIPACK",
     tagline: "Tus tres favoritos en un solo pack",
-    accent: "bg-mint-100",
+    detail:
+      "El kit completo de higiene íntima para acompañarte todo el mes, con ahorro.",
+    size: "3 × 200 ml",
+    accent: "from-mint-100 to-mint-300/40",
     image: null,
     category: "jabon",
-  },
-  {
-    slug: "intyprob",
-    name: "IntyProb",
-    tagline: "Probióticos e inositol en cápsulas",
-    accent: "bg-coral-100",
-    image: null,
-    category: "suplemento",
-  },
-  {
-    slug: "copa-menstrual",
-    name: "Copa Menstrual",
-    tagline: "Protección reutilizable hasta 12 horas",
-    accent: "bg-butter-100",
-    image: null,
-    category: "copa",
   },
 ];
 

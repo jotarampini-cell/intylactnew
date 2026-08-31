@@ -4,8 +4,12 @@ import { products } from "@/lib/products";
 import Button from "@/components/ui/Button";
 import SectionShell from "@/components/ui/SectionShell";
 import ScallopDivider from "@/components/ui/ScallopDivider";
+import Reveal from "@/components/ui/Reveal";
 
 export default function ProductGrid() {
+  const featured = products.filter((p) => p.featured);
+  const rest = products.filter((p) => !p.featured);
+
   return (
     <SectionShell
       id="tienda"
@@ -13,74 +17,115 @@ export default function ProductGrid() {
       aria-labelledby="tienda-titulo"
       className="overflow-hidden"
     >
-      <div className="text-center">
-        <h2
-          id="tienda-titulo"
-          className="font-heading text-[clamp(2.5rem,8vw,5.5rem)] font-bold leading-none tracking-tight text-teal-900/15"
-        >
-          TIENDA
-        </h2>
-        <p className="mx-auto -mt-2 max-w-[46ch] text-base text-teal-900/75 sm:text-lg">
-          Fórmulas con probióticos e inositol para acompañar tu cuidado íntimo
-          todos los días.
-        </p>
-      </div>
+      <Reveal>
+        <div className="text-center">
+          <p className="font-heading text-xs font-semibold uppercase tracking-[0.22em] text-coral-500">
+            Nuestra línea
+          </p>
+          <h2
+            id="tienda-titulo"
+            className="mt-3 font-heading text-[clamp(2rem,5vw,3.4rem)] font-bold leading-[1.05] tracking-[-0.02em]"
+          >
+            Todo lo que tu zona V necesita
+          </h2>
+          <p className="mx-auto mt-4 max-w-[52ch] text-base leading-relaxed text-teal-900/70 sm:text-lg">
+            Fórmulas desarrolladas con prebióticos, ácido hialurónico y ácido
+            láctico para acompañarte en cada etapa.
+          </p>
+        </div>
+      </Reveal>
 
-      <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((p) => (
+      {/* Featured — larger cards with real photography */}
+      <ul className="mt-14 grid gap-6 lg:grid-cols-3">
+        {featured.map((p, i) => (
           <li key={p.slug}>
-            <Link
-              href={`/tienda/${p.slug}`}
-              className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_2px_18px_rgba(0,48,60,0.07)] transition-shadow duration-300 hover:shadow-[0_10px_34px_rgba(0,48,60,0.14)]"
-            >
-              <div
-                className={`relative grid aspect-[4/3] place-items-center ${p.accent}`}
+            <Reveal delay={i * 110}>
+              <Link
+                href={`/tienda/${p.slug}`}
+                className="group flex h-full flex-col overflow-hidden rounded-[2rem] bg-white shadow-[0_4px_24px_rgba(0,48,60,.08)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_22px_50px_rgba(0,48,60,.16)]"
               >
-                {p.image ? (
-                  <Image
-                    src={p.image}
-                    alt={p.name}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-contain p-6 transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                ) : (
-                  <span className="font-heading text-sm font-medium text-teal-900/45">
-                    Imagen de producto
+                <div
+                  className={`relative grid aspect-[5/4] place-items-center bg-gradient-to-br ${p.accent}`}
+                >
+                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 font-heading text-[10px] font-semibold uppercase tracking-wider text-teal-900">
+                    {p.size}
                   </span>
-                )}
-              </div>
-
-              <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-heading text-lg font-semibold text-teal-900">
-                  {p.name}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-teal-900/70">
-                  {p.tagline}
-                </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 font-heading text-sm font-medium text-coral-500 transition-colors group-hover:text-teal-900">
-                  Ver producto
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M5 12h13M13 6l6 6-6 6"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                  {p.image && (
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      width={460}
+                      height={460}
+                      className="h-[78%] w-auto object-contain drop-shadow-[0_14px_26px_rgba(0,48,60,.18)] transition-transform duration-700 group-hover:scale-[1.07]"
                     />
-                  </svg>
-                </span>
-              </div>
-            </Link>
+                  )}
+                </div>
+
+                <div className="flex flex-1 flex-col p-7">
+                  <h3 className="font-heading text-xl font-semibold leading-snug">
+                    {p.name}
+                  </h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-teal-900/70">
+                    {p.tagline}
+                  </p>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-teal-900/55">
+                    {p.detail}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-1.5 font-heading text-sm font-semibold text-coral-500 transition-colors group-hover:text-teal-900">
+                    Ver producto
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden="true"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
           </li>
         ))}
       </ul>
 
-      <div className="mt-12 text-center">
-        <Button href="/tienda" size="lg">
-          Lo quiero
-        </Button>
-      </div>
+      {/* Remaining line — compact cards */}
+      <ul className="mt-6 grid gap-6 sm:grid-cols-3">
+        {rest.map((p, i) => (
+          <li key={p.slug}>
+            <Reveal delay={i * 90}>
+              <Link
+                href={`/tienda/${p.slug}`}
+                className={`group flex h-full items-center gap-4 rounded-[1.5rem] bg-gradient-to-br ${p.accent} p-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,48,60,.12)]`}
+              >
+                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white/70">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-teal-900">
+                    <path d="M12 3.5s6 6.2 6 10.1A6 6 0 016 13.6C6 9.7 12 3.5 12 3.5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <span className="min-w-0">
+                  <span className="block font-heading text-base font-semibold leading-snug">
+                    {p.name}
+                  </span>
+                  <span className="mt-1 block text-xs leading-relaxed text-teal-900/65">
+                    {p.tagline}
+                  </span>
+                </span>
+              </Link>
+            </Reveal>
+          </li>
+        ))}
+      </ul>
+
+      <Reveal>
+        <div className="mt-14 text-center">
+          <Button href="/tienda" size="lg">
+            Ver toda la tienda
+          </Button>
+        </div>
+      </Reveal>
 
       <ScallopDivider color="text-white" position="bottom" />
     </SectionShell>
