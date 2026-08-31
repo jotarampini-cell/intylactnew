@@ -93,7 +93,7 @@ export default function Hero() {
         aria-hidden="true"
         width={397}
         height={706}
-        priority
+        sizes="(max-width: 640px) 55vw, 400px"
         className="pointer-events-none absolute -right-16 top-0 h-full w-auto opacity-25 mix-blend-soft-light lg:opacity-40"
       />
 

@@ -54,29 +54,45 @@ export default function Ingredients() {
         </div>
       </Reveal>
 
-      <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Swipeable on phones (four stacked cards ran 1.7 viewports tall),
+          grid from sm up. */}
+      <ul
+        className="
+          mt-10 -mx-[22px] flex snap-x snap-mandatory gap-4 overflow-x-auto px-[22px] pb-4
+          [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+          sm:mx-0 sm:mt-14 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0
+          lg:grid-cols-4
+        "
+      >
         {actives.map((a, i) => (
-          <li key={a.name}>
-            <Reveal delay={i * 100}>
+          <li
+            key={a.name}
+            className="w-[72vw] max-w-[280px] shrink-0 snap-center sm:w-auto sm:max-w-none"
+          >
+            <Reveal delay={i * 100} className="h-full">
               <article
-                className={`flex h-full flex-col rounded-[1.75rem] bg-gradient-to-br ${a.tint} p-7 transition-transform duration-500 hover:-translate-y-1.5`}
+                className={`flex h-full flex-col rounded-[1.5rem] bg-gradient-to-br ${a.tint} p-6 transition-transform duration-500 hover:-translate-y-1.5 sm:rounded-[1.75rem] sm:p-7`}
               >
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/75">
+                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white/75 sm:h-12 sm:w-12">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-teal-900">
                     <path d="M5 19c0-8 5-13 14-13 0 9-5 14-13 14H5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
                     <path d="M5 19c3-4 6-6 10-7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                 </span>
-                <h3 className="mt-5 font-heading text-lg font-semibold">{a.name}</h3>
-                <p className="mt-1 font-heading text-xs font-semibold uppercase tracking-wider text-teal-900/55">
+                <h3 className="mt-4 font-heading text-lg font-semibold sm:mt-5">{a.name}</h3>
+                <p className="mt-1 font-heading text-[11px] font-semibold uppercase tracking-wider text-teal-900/55 sm:text-xs">
                   {a.role}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-teal-900/75">{a.body}</p>
+                <p className="mt-3 text-[13px] leading-relaxed text-teal-900/75 sm:text-sm">{a.body}</p>
               </article>
             </Reveal>
           </li>
         ))}
       </ul>
+
+      <p className="mt-1 text-center text-[13px] text-teal-900/45 sm:hidden">
+        Desliza para ver más →
+      </p>
 
       <ScallopDivider color="text-cream" position="bottom" />
     </SectionShell>

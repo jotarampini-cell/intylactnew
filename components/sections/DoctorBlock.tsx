@@ -9,7 +9,7 @@ export default function DoctorBlock() {
         <strong className="font-bold">Intylact</strong>
       </p>
 
-      <div className="mt-12 grid items-center gap-10 lg:grid-cols-2">
+      <div className="mt-8 grid items-center gap-8 sm:mt-12 sm:gap-10 lg:grid-cols-2">
         <div>
           <h2
             id="doctor-titulo"
@@ -33,7 +33,7 @@ export default function DoctorBlock() {
 
         {/* SWAP-IN POINT: /public/team/dr-navarro.jpg */}
         <figure className="relative mx-auto w-full max-w-[420px]">
-          <div className="grid aspect-[4/5] place-items-center rounded-[2rem] border-4 border-mint-300 bg-white/45">
+          <div className="grid aspect-[4/3] place-items-center rounded-[1.5rem] border-4 border-mint-300 bg-white/45 sm:aspect-[4/5] sm:rounded-[2rem]">
             <span className="font-heading text-sm font-medium text-teal-900/55">
               Retrato
             </span>

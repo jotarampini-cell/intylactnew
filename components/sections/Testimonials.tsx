@@ -62,16 +62,27 @@ export default function Testimonials() {
         </div>
       </Reveal>
 
-      <ul className="mt-14 grid gap-6 lg:grid-cols-3">
+      {/* Swipeable on phones, grid from lg up */}
+      <ul
+        className="
+          mt-10 -mx-[22px] flex snap-x snap-mandatory gap-4 overflow-x-auto px-[22px] pb-4
+          [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+          sm:mx-0 sm:mt-14 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0
+          lg:grid-cols-3
+        "
+      >
         {quotes.map((q, i) => (
-          <li key={q.author}>
-            <Reveal delay={i * 110}>
-              <figure className="flex h-full flex-col rounded-[1.75rem] bg-white p-8 shadow-[0_4px_22px_rgba(0,48,60,.07)]">
+          <li
+            key={q.author}
+            className="w-[76vw] max-w-[310px] shrink-0 snap-center sm:w-auto sm:max-w-none"
+          >
+            <Reveal delay={i * 110} className="h-full">
+              <figure className="flex h-full flex-col rounded-[1.5rem] bg-white p-6 shadow-[0_4px_22px_rgba(0,48,60,.07)] sm:rounded-[1.75rem] sm:p-8">
                 <Stars />
-                <blockquote className="mt-4 flex-1 text-base leading-relaxed text-teal-900/85">
+                <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-teal-900/85 sm:text-base">
                   <p>“{q.quote}”</p>
                 </blockquote>
-                <figcaption className="mt-6 border-t border-teal-900/10 pt-4">
+                <figcaption className="mt-5 border-t border-teal-900/10 pt-4 sm:mt-6">
                   <span className="block font-heading text-sm font-semibold">{q.author}</span>
                   <span className="mt-0.5 block text-[13px] text-teal-900/65">{q.context}</span>
                 </figcaption>
@@ -80,6 +91,10 @@ export default function Testimonials() {
           </li>
         ))}
       </ul>
+
+      <p className="mt-1 text-center text-[13px] text-teal-900/45 sm:hidden">
+        Desliza para ver más →
+      </p>
 
       <ScallopDivider color="text-butter-100" position="bottom" />
     </SectionShell>
