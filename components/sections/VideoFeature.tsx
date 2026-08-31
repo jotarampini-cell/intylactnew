@@ -52,7 +52,7 @@ export default function VideoFeature() {
               trabajan a favor de tu equilibrio natural.
             </p>
 
-            <ul className="mt-7 space-y-3">
+            <ul className="mt-6 space-y-2.5 sm:mt-7 sm:space-y-3">
               {points.map((p) => (
                 <li key={p} className="flex items-start gap-3">
                   <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-mint-300">
@@ -113,7 +113,7 @@ export default function VideoFeature() {
                     className="group absolute inset-0 grid place-items-center"
                   >
                     <span className="sr-only">Reproducir video</span>
-                    <span className="relative grid h-20 w-20 place-items-center rounded-full bg-white/95 shadow-[0_10px_40px_rgba(0,48,60,.3)] transition-transform duration-300 ease-[var(--ease-brand)] group-hover:scale-110">
+                    <span className="relative grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-[0_10px_40px_rgba(0,48,60,.3)] transition-transform duration-300 ease-[var(--ease-brand)] group-hover:scale-110 sm:h-20 sm:w-20">
                       <span
                         aria-hidden="true"
                         className="absolute inset-0 rounded-full bg-white/60 motion-safe:animate-[var(--animate-pulse-ring)]"

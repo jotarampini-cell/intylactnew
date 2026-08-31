@@ -48,7 +48,7 @@ export default function OfferCountdown() {
       className="overflow-hidden"
     >
       <Reveal>
-        <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:justify-between lg:text-left">
+        <div className="flex flex-col items-center gap-5 text-center lg:flex-row lg:justify-between lg:gap-8 lg:text-left">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 font-heading text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
               <span className="relative grid h-2 w-2 place-items-center">
@@ -66,14 +66,14 @@ export default function OfferCountdown() {
           </div>
 
           {/* Countdown. Reserves its footprint before mount so nothing shifts. */}
-          <div className="flex items-center gap-2.5" aria-live="off">
+          <div className="flex items-center gap-2 sm:gap-2.5" aria-live="off">
             {(units ?? [{ l: "días" }, { l: "hrs" }, { l: "min" }, { l: "seg" }]).map(
               (u, i) => (
                 <div
                   key={i}
-                  className="grid h-[68px] w-[62px] place-items-center rounded-2xl bg-white/10 backdrop-blur-sm"
+                  className="grid h-[58px] w-[54px] place-items-center rounded-xl bg-white/10 backdrop-blur-sm sm:h-[68px] sm:w-[62px] sm:rounded-2xl"
                 >
-                  <span className="font-heading text-2xl font-bold tabular-nums text-white">
+                  <span className="font-heading text-xl font-bold tabular-nums text-white sm:text-2xl">
                     {"v" in u && typeof u.v === "number" ? pad(u.v) : "--"}
                   </span>
                   <span className="font-heading text-[10px] font-medium uppercase tracking-wider text-white/65">
@@ -86,7 +86,7 @@ export default function OfferCountdown() {
         </div>
       </Reveal>
 
-      <div className="mt-10">
+      <div className="mt-8 sm:mt-10">
         <Carousel
           label="Productos en oferta"
           gridClass="sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:pb-0 lg:grid-cols-3"

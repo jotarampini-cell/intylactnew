@@ -65,7 +65,7 @@ export default function Categories() {
                   href={`/tienda?categoria=${c.id}`}
                   className={`group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] bg-gradient-to-br ${c.accent} p-5 transition-[transform,box-shadow] duration-300 ease-[var(--ease-brand)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(0,48,60,.14)] sm:rounded-[1.75rem] sm:p-7`}
                 >
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/70 transition-transform duration-300 ease-[var(--ease-brand)] group-hover:scale-110 sm:h-14 sm:w-14">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/70 transition-transform duration-300 ease-[var(--ease-brand)] group-hover:scale-110 sm:h-14 sm:w-14 sm:rounded-2xl">
                     <svg
                       width="24"
                       height="24"
@@ -82,7 +82,7 @@ export default function Categories() {
                     </svg>
                   </span>
 
-                  <h3 className="mt-4 font-heading text-[15px] font-semibold leading-snug sm:mt-5 sm:text-lg">
+                  <h3 className="mt-3.5 font-heading text-[15px] font-semibold leading-snug sm:mt-5 sm:text-lg">
                     {c.label}
                   </h3>
                   <p className="mt-1 flex-1 text-[13px] leading-relaxed text-teal-900/70">
