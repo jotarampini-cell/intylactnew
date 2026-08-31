@@ -167,7 +167,10 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-2 px-[22px] py-5 text-[13px] text-white/55 sm:flex-row sm:justify-between">
-          <p>© {new Date().getFullYear()} Intylact · Todos los derechos reservados</p>
+          <p>
+            © {new Date().getFullYear()} Desarrollado por haztap. Todos los
+            derechos reservados.
+          </p>
           <p>Hecho con cuidado en México</p>
         </div>
       </div>

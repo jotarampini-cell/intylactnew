@@ -27,7 +27,7 @@ export default function ProductCard({
       className="group flex h-full flex-col overflow-hidden rounded-[16px] bg-white shadow-[0_4px_24px_rgba(0,48,60,.08)] transition-[transform,box-shadow] duration-[var(--dur-fast)] ease-[var(--ease-brand)] hover:-translate-y-1.5 hover:shadow-[0_22px_50px_rgba(0,48,60,.16)] sm:rounded-[18px]"
     >
       <div
-        className={`relative grid aspect-square place-items-center overflow-hidden bg-gradient-to-br ${p.accent}`}
+        className={`sheen relative grid aspect-square place-items-center overflow-hidden bg-gradient-to-br ${p.accent}`}
       >
         {/* Badges */}
         <div className="absolute left-3.5 top-3.5 z-10 flex flex-col items-start gap-1.5">

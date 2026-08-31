@@ -6,6 +6,8 @@ import Button from "@/components/ui/Button";
 import Aurora from "@/components/ui/Aurora";
 import ScallopDivider from "@/components/ui/ScallopDivider";
 import Icon from "@/components/ui/Icon";
+import SplitReveal from "@/components/ui/SplitReveal";
+import Parallax from "@/components/ui/Parallax";
 
 type Slide = {
   eyebrow: string;
@@ -106,13 +108,22 @@ export default function Hero() {
             {active.eyebrow}
           </p>
 
-          <h1 className="mt-5 font-heading text-[clamp(2.4rem,6.4vw,4.6rem)] font-bold leading-[0.98] tracking-[-0.02em] text-white [text-shadow:0_2px_28px_rgba(0,48,60,.28)]">
-            {active.title}{" "}
+          {/* Keyed on `index` so the words re-animate when the slide changes */}
+          <h1
+            key={index}
+            className="mt-5 font-heading text-[clamp(2.4rem,6.4vw,4.6rem)] font-bold leading-[0.98] tracking-[-0.02em] text-white [text-shadow:0_2px_28px_rgba(0,48,60,.28)]"
+          >
+            <SplitReveal text={active.title} />
+            {/* Explicit space: a plain {" "} collapses between the two
+                inline-block reveals, joining "tu" and "zona". */}
+            <span aria-hidden="true">&nbsp;</span>
             <span className="relative inline-block">
-              <span className="relative z-10">{active.highlight}</span>
+              <span className="relative z-10">
+                <SplitReveal text={active.highlight} delay={140} />
+              </span>
               <span
                 aria-hidden="true"
-                className="absolute inset-x-0 bottom-[.12em] z-0 h-[.34em] -rotate-1 rounded-full bg-butter-200/85"
+                className="absolute inset-x-0 bottom-[.12em] z-0 h-[.34em] origin-left -rotate-1 rounded-full bg-butter-200/85 motion-safe:animate-[grow-x_700ms_cubic-bezier(.16,1,.3,1)_400ms_both]"
               />
             </span>
           </h1>
@@ -146,29 +157,36 @@ export default function Hero() {
           </ul>
         </div>
 
-        {/* Product stage */}
+        {/* Product stage. The blobs and the product drift at different rates on
+            scroll, which is what reads as depth rather than a flat panel. */}
         <div className="relative mx-auto grid w-full max-w-[520px] place-items-center">
-          <div
-            aria-hidden="true"
-            className="absolute inset-4 rounded-[46%_54%_52%_48%/50%_46%_54%_50%] bg-white/25 backdrop-blur-[2px]"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-10 rounded-[52%_48%_46%_54%/48%_52%_48%_52%] bg-white/20"
-          />
-          {slides.map((s, i) => (
-            <Image
-              key={s.image}
-              src={s.image}
-              alt={i === index ? s.imageAlt : ""}
-              width={620}
-              height={620}
-              priority={i === 0}
-              className={`relative col-start-1 row-start-1 h-auto w-[78%] max-w-[420px] object-contain drop-shadow-[0_28px_50px_rgba(0,48,60,.32)] transition-all duration-700 ${
-                i === index ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
-              }`}
+          <Parallax speed={0.06} className="absolute inset-0">
+            <div
+              aria-hidden="true"
+              className="absolute inset-4 rounded-[46%_54%_52%_48%/50%_46%_54%_50%] bg-white/25 backdrop-blur-[2px]"
             />
-          ))}
+            <div
+              aria-hidden="true"
+              className="absolute inset-10 rounded-[52%_48%_46%_54%/48%_52%_48%_52%] bg-white/20"
+            />
+          </Parallax>
+
+          <Parallax speed={-0.09} className="col-start-1 row-start-1 grid w-full place-items-center">
+            {slides.map((s, i) => (
+              <Image
+                key={s.image}
+                src={s.image}
+                alt={i === index ? s.imageAlt : ""}
+                width={620}
+                height={620}
+                priority={i === 0}
+                sizes="(max-width: 1024px) 78vw, 420px"
+                className={`relative col-start-1 row-start-1 h-auto w-[78%] max-w-[420px] object-contain drop-shadow-[0_28px_50px_rgba(0,48,60,.32)] transition-all duration-700 motion-safe:animate-[var(--animate-float)] ${
+                  i === index ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
+                }`}
+              />
+            ))}
+          </Parallax>
         </div>
       </div>
 

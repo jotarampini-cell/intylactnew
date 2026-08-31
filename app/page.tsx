@@ -3,6 +3,9 @@ import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import BenefitTicker from "@/components/sections/BenefitTicker";
 import Categories from "@/components/sections/Categories";
+import Stats from "@/components/sections/Stats";
+import InstagramReels from "@/components/sections/InstagramReels";
+import Activities from "@/components/sections/Activities";
 import ProductGrid from "@/components/sections/ProductGrid";
 import OfferCountdown from "@/components/sections/OfferCountdown";
 import Ingredients from "@/components/sections/Ingredients";
@@ -25,12 +28,15 @@ export default function Home() {
         <ProductGrid />
         <OfferCountdown />
         <Ingredients />
+        <Stats />
         <VideoFeature />
         <EducationBlock />
         <Testimonials />
         <CycleCalculator />
+        <InstagramReels />
         <CommunityWall />
         <DoctorBlock />
+        <Activities />
         <Faq />
       </main>
       <Footer />

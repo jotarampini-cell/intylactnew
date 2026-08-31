@@ -106,6 +106,54 @@
   }
 }
 
+/* Underline that draws itself left to right behind the hero's highlight word */
+@keyframes grow-x {
+  from {
+    transform: scaleX(0) rotate(-1deg);
+  }
+  to {
+    transform: scaleX(1) rotate(-1deg);
+  }
+}
+
+/* Sheen that sweeps across a card on hover.
+   Driven by a custom property so it can animate without repainting the card. */
+@property --sheen-x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: -60%;
+}
+
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 60%
+  );
+  background-size: 250% 100%;
+  background-position: var(--sheen-x) 0;
+  transition: --sheen-x 750ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .sheen::after,
+.sheen:hover::after {
+  --sheen-x: 160%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheen::after {
+    display: none;
+  }
+}
+
 /* Expanding ring behind the live-offer dot */
 @keyframes pulse-ring {
   0% {
