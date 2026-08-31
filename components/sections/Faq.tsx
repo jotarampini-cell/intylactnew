@@ -77,12 +77,14 @@ export default function Faq() {
       </div>
 
       <Reveal>
-        <p className="mt-10 text-center text-sm text-teal-900/65">
+        <p className="mt-10 text-center text-[15px] text-teal-900/70">
           ¿Tienes otra duda?{" "}
-          <a href="/contacto" className="font-semibold text-coral-500 underline underline-offset-4 hover:text-teal-900">
+          <a
+            href="/contacto"
+            className="inline-flex min-h-11 items-center px-1 font-semibold text-coral-500 underline underline-offset-4 hover:text-teal-900"
+          >
             Escríbenos
           </a>
-          .
         </p>
       </Reveal>
     </SectionShell>

@@ -29,12 +29,12 @@ export default function Footer() {
           <h2 id="footer-enlaces" className="font-heading text-lg font-bold text-white">
             Enlaces Rápidos
           </h2>
-          <ul className="mt-4 space-y-2.5">
+          <ul className="mt-3">
             {navLinks.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="text-sm text-white/80 transition-colors hover:text-white"
+                  className="-mx-2 inline-flex min-h-11 items-center px-2 text-sm text-white/80 transition-colors hover:text-white"
                 >
                   {l.label}
                 </Link>
@@ -47,12 +47,12 @@ export default function Footer() {
           <h2 id="footer-productos" className="font-heading text-lg font-bold text-white">
             Productos
           </h2>
-          <ul className="mt-4 space-y-2.5">
+          <ul className="mt-3">
             {products.map((p) => (
               <li key={p.slug}>
                 <Link
                   href={`/tienda/${p.slug}`}
-                  className="text-sm text-white/80 transition-colors hover:text-white"
+                  className="-mx-2 inline-flex min-h-11 items-center px-2 text-sm text-white/80 transition-colors hover:text-white"
                 >
                   {p.name}
                 </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition-colors hover:bg-white/30"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 transition-colors hover:bg-white/30"
                 >
                   <span className="sr-only">{s.label}</span>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -81,7 +81,7 @@ export default function Footer() {
             ))}
           </ul>
 
-          <p className="mt-6 text-xs leading-relaxed text-white/70">
+          <p className="mt-6 text-[13px] leading-relaxed text-white/75">
             La información provista es meramente de uso informativo y no pretende
             sustituir las recomendaciones de su médico y/o profesional calificado
             del área de la salud. Ante cualquier duda consulte a su especialista.
@@ -90,7 +90,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/15">
-        <p className="mx-auto max-w-[1280px] px-[22px] py-5 text-center text-xs text-white/70">
+        <p className="mx-auto max-w-[1280px] px-[22px] py-5 text-center text-[13px] text-white/75">
           © {new Date().getFullYear()} Intylact · Todos los derechos reservados
         </p>
       </div>

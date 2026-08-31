@@ -73,10 +73,10 @@ export default function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="menu-movil"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-teal-900 transition-colors hover:bg-teal-900/5 xl:hidden"
+            className="-mr-1.5 inline-flex h-12 w-12 items-center justify-center rounded-full text-teal-900 transition-colors hover:bg-teal-900/5 xl:hidden"
           >
             <span className="sr-only">{open ? "Cerrar menú" : "Abrir menú"}</span>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               {open ? (
                 <path
                   d="M6 6l12 12M18 6L6 18"
@@ -110,7 +110,7 @@ export default function Header() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-xl px-3 py-3 font-heading text-sm font-medium text-teal-900 transition-colors hover:bg-teal-900/5"
+                  className="flex min-h-12 items-center rounded-xl px-3 font-heading text-base font-medium text-teal-900 transition-colors hover:bg-teal-900/5 active:bg-teal-900/10"
                 >
                   {link.label}
                 </Link>

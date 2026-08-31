@@ -20,7 +20,7 @@ export default function BenefitTicker() {
         {benefits.map((b) => (
           <li key={b.label} className="flex w-[92px] flex-col items-center gap-2 text-center">
             <BenefitIcon name={b.icon} className="h-8 w-8 text-teal-900" />
-            <span className="font-heading text-[11px] font-medium leading-tight text-teal-900">
+            <span className="font-heading text-[12px] font-medium leading-tight text-teal-900">
               {b.label}
             </span>
           </li>

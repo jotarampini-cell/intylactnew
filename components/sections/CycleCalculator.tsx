@@ -181,7 +181,7 @@ export default function CycleCalculator() {
               </div>
             </dl>
 
-            <p className="mt-5 text-xs leading-relaxed text-teal-900/65">
+            <p className="mt-5 text-[13px] leading-relaxed text-teal-900/70">
               Estas fechas son estimaciones basadas en un ciclo regular. No
               sustituyen la orientación de un profesional de la salud ni funcionan
               como método anticonceptivo.

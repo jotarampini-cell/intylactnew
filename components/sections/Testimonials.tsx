@@ -73,7 +73,7 @@ export default function Testimonials() {
                 </blockquote>
                 <figcaption className="mt-6 border-t border-teal-900/10 pt-4">
                   <span className="block font-heading text-sm font-semibold">{q.author}</span>
-                  <span className="mt-0.5 block text-xs text-teal-900/60">{q.context}</span>
+                  <span className="mt-0.5 block text-[13px] text-teal-900/65">{q.context}</span>
                 </figcaption>
               </figure>
             </Reveal>

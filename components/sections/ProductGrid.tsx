@@ -47,7 +47,7 @@ export default function ProductGrid() {
                 <div
                   className={`relative grid aspect-[5/4] place-items-center bg-gradient-to-br ${p.accent}`}
                 >
-                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 font-heading text-[10px] font-semibold uppercase tracking-wider text-teal-900">
+                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 font-heading text-[11px] font-semibold uppercase tracking-wider text-teal-900">
                     {p.size}
                   </span>
                   {p.image && (
@@ -109,7 +109,7 @@ export default function ProductGrid() {
                   <span className="block font-heading text-base font-semibold leading-snug">
                     {p.name}
                   </span>
-                  <span className="mt-1 block text-xs leading-relaxed text-teal-900/65">
+                  <span className="mt-1 block text-[13px] leading-relaxed text-teal-900/70">
                     {p.tagline}
                   </span>
                 </span>

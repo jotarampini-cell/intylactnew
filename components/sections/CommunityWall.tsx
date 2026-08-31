@@ -53,7 +53,7 @@ export default function CommunityWall() {
             <div
               className={`grid ${t.size} place-items-center overflow-hidden rounded-full ${t.tint}`}
             >
-              <span className="px-2 text-center font-heading text-[10px] font-medium text-teal-900/50">
+              <span className="px-2 text-center font-heading text-[11px] font-medium text-teal-900/55">
                 Foto
               </span>
             </div>

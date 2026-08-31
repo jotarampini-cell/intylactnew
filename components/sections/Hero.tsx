@@ -74,7 +74,7 @@ export default function Hero() {
     <section
       aria-roledescription="carrusel"
       aria-label="Destacados de Intylact"
-      className="relative isolate min-h-[clamp(560px,88vh,880px)] overflow-hidden"
+      className="relative isolate min-h-[clamp(520px,78vh,880px)] overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -97,7 +97,7 @@ export default function Hero() {
         className="pointer-events-none absolute -right-16 top-0 h-full w-auto opacity-25 mix-blend-soft-light lg:opacity-40"
       />
 
-      <div className="relative mx-auto grid min-h-[clamp(560px,88vh,880px)] max-w-[1280px] items-center gap-8 px-[22px] pb-24 pt-12 lg:grid-cols-[1.02fr_.98fr] lg:gap-4">
+      <div className="relative mx-auto grid min-h-[clamp(520px,78vh,880px)] max-w-[1280px] items-center gap-5 px-[22px] pb-20 pt-8 sm:gap-8 sm:pb-24 sm:pt-12 lg:grid-cols-[1.02fr_.98fr] lg:gap-4">
         {/* Copy */}
         <div className="max-w-[52ch]" aria-live="polite" aria-atomic="true">
           <p className="inline-flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 font-heading text-[11px] font-semibold uppercase tracking-[0.16em] text-teal-900 shadow-sm backdrop-blur">
@@ -116,11 +116,11 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mt-6 max-w-[46ch] text-[clamp(1rem,1.6vw,1.2rem)] leading-relaxed text-white/95 [text-shadow:0_1px_12px_rgba(0,48,60,.25)]">
+          <p className="mt-4 max-w-[46ch] text-[clamp(1rem,1.6vw,1.2rem)] leading-relaxed text-white/95 [text-shadow:0_1px_12px_rgba(0,48,60,.25)] sm:mt-6">
             {active.body}
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-9">
             <Button href={active.cta.href} variant="white" size="lg" className="shadow-lg">
               {active.cta.label}
             </Button>
@@ -135,9 +135,9 @@ export default function Hero() {
           </div>
 
           {/* Trust strip */}
-          <ul className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <ul className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-1.5 sm:mt-10 sm:gap-x-6">
             {["pH balanceado", "Vegano", "Sin alcohol", "Dermatológicamente probado"].map((t) => (
-              <li key={t} className="flex items-center gap-1.5 text-xs font-medium text-white/90">
+              <li key={t} className="flex items-center gap-1.5 text-[13px] font-medium text-white/95">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -197,18 +197,24 @@ export default function Hero() {
             </svg>
           </button>
 
-          <ul className="ml-2 flex items-center gap-2">
+          <ul className="ml-1 flex items-center">
             {slides.map((s, i) => (
               <li key={s.image}>
+                {/* 44×44 hit area with a smaller visual dot inside, so the
+                    target is thumb-friendly without a chunky indicator. */}
                 <button
                   type="button"
                   onClick={() => go(i)}
                   aria-current={i === index}
-                  className={`block h-2.5 rounded-full transition-all duration-300 ${
-                    i === index ? "w-10 bg-white" : "w-2.5 bg-white/55 hover:bg-white/80"
-                  }`}
+                  className="grid h-11 w-11 place-items-center"
                 >
                   <span className="sr-only">Ir a la diapositiva {i + 1}</span>
+                  <span
+                    aria-hidden="true"
+                    className={`block h-2.5 rounded-full transition-all duration-300 ${
+                      i === index ? "w-8 bg-white" : "w-2.5 bg-white/60"
+                    }`}
+                  />
                 </button>
               </li>
             ))}
