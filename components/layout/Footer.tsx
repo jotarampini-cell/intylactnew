@@ -166,12 +166,11 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-2 px-[22px] py-5 text-[13px] text-white/55 sm:flex-row sm:justify-between">
+        <div className="mx-auto max-w-[1280px] px-[22px] py-5 text-center text-[13px] text-white/55">
           <p>
             © {new Date().getFullYear()} Desarrollado por haztap. Todos los
             derechos reservados.
           </p>
-          <p>Hecho con cuidado en México</p>
         </div>
       </div>
     </footer>
