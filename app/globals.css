@@ -181,7 +181,6 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
-  color: var(--color-teal-900);
   text-wrap: balance;
 }
 

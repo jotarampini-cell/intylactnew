@@ -4,7 +4,10 @@ import SectionShell from "@/components/ui/SectionShell";
 export default function DoctorBlock() {
   return (
     <SectionShell background="bg-coral-200" aria-labelledby="doctor-titulo">
-      <p className="mx-auto max-w-[40ch] text-center font-heading text-[clamp(1.25rem,2.6vw,1.75rem)] leading-snug text-white">
+      {/* Teal, not white: white on coral-200 measures 1.7:1 and fails WCAG AA
+          even at large sizes (which need 3.0). Teal on this ground clears it
+          comfortably. */}
+      <p className="mx-auto max-w-[40ch] text-center font-heading text-[clamp(1.25rem,2.6vw,1.75rem)] leading-snug text-teal-900">
         Para el bienestar y la salud de tu zona V, nada mejor que el cuidado con{" "}
         <strong className="font-bold">Intylact</strong>
       </p>
@@ -13,12 +16,12 @@ export default function DoctorBlock() {
         <div>
           <h2
             id="doctor-titulo"
-            className="font-heading text-[clamp(1.6rem,3.6vw,2.5rem)] font-bold leading-tight text-white"
+            className="font-heading text-[clamp(1.6rem,3.6vw,2.5rem)] font-bold leading-tight text-teal-900"
           >
             ¿Sabías que el cuidado de la zona vulvar es igual de importante que el
             del resto del cuerpo?
           </h2>
-          <p className="mt-5 max-w-[52ch] text-sm leading-relaxed text-white/90 sm:text-base">
+          <p className="mt-5 max-w-[52ch] text-sm leading-relaxed text-teal-900/85 sm:text-base">
             Muchas mujeres descubren esta zona tan importante para su salud
             íntima solo cuando aparece una molestia. Cuidarla a diario, con
             productos formulados para respetar su pH, es una forma sencilla de
