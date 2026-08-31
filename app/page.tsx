@@ -2,11 +2,14 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import BenefitTicker from "@/components/sections/BenefitTicker";
+import Categories from "@/components/sections/Categories";
 import ProductGrid from "@/components/sections/ProductGrid";
+import OfferCountdown from "@/components/sections/OfferCountdown";
 import Ingredients from "@/components/sections/Ingredients";
-import CycleCalculator from "@/components/sections/CycleCalculator";
+import VideoFeature from "@/components/sections/VideoFeature";
 import EducationBlock from "@/components/sections/EducationBlock";
 import Testimonials from "@/components/sections/Testimonials";
+import CycleCalculator from "@/components/sections/CycleCalculator";
 import CommunityWall from "@/components/sections/CommunityWall";
 import DoctorBlock from "@/components/sections/DoctorBlock";
 import Faq from "@/components/sections/Faq";
@@ -18,8 +21,11 @@ export default function Home() {
       <main id="contenido" className="flex-1">
         <Hero />
         <BenefitTicker />
+        <Categories />
         <ProductGrid />
+        <OfferCountdown />
         <Ingredients />
+        <VideoFeature />
         <EducationBlock />
         <Testimonials />
         <CycleCalculator />

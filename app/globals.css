@@ -30,9 +30,16 @@
   /* Section rhythm (desktop); sections scale down via clamp below */
   --spacing-section: 7rem; /* 112px */
 
-  /* Motion */
+  /* Motion.
+     One easing curve and a small set of durations used everywhere: the
+     consistency is what reads as "polished", far more than any single effect. */
+  --ease-brand: cubic-bezier(0.62, 0.05, 0.24, 1);
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
   --animate-marquee: marquee 38s linear infinite;
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-shimmer: shimmer 2.2s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2.4s ease-out infinite;
 }
 
 /* Brand gradients — used by hero, footer, and accent panels */
@@ -66,6 +73,42 @@
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Sweeping highlight across skeletons and sale badges */
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+/* Gentle drift for decorative product art */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+/* Expanding ring behind the live-offer dot */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Lato } from "next/font/google";
 import "./globals.css";
+import PageTransition from "@/components/ui/PageTransition";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -46,6 +47,7 @@ export default function RootLayout({
         <a href="#contenido" className="skip-link">
           Saltar al contenido principal
         </a>
+        <PageTransition />
         {children}
       </body>
     </html>

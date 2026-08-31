@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { navLinks } from "@/lib/products";
 import Logo from "@/components/ui/Logo";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,12 +34,14 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ease-[var(--ease-brand)] ${
         scrolled
           ? "bg-cream/95 shadow-[0_2px_20px_rgba(0,48,60,0.08)] backdrop-blur"
           : "bg-transparent"
       }`}
     >
+      {/* Reading progress — only once the hero is behind us */}
+      {scrolled && <ScrollProgress />}
       <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-[22px] py-4">
         <Link href="/" aria-label="Intylact — Inicio" className="shrink-0">
           <Logo className="h-8 w-auto" priority />

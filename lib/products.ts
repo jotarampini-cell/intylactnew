@@ -7,6 +7,8 @@
  * file needs to change. `image: null` renders the placeholder tile.
  */
 
+export type CategoryId = "gel" | "jabon" | "suplemento" | "copa";
+
 export type Product = {
   slug: string;
   name: string;
@@ -19,10 +21,59 @@ export type Product = {
   /** Gradient stops behind the product shot, as Tailwind from-/to- utilities */
   accent: string;
   image: string | null;
-  category: "gel" | "jabon" | "suplemento" | "copa";
+  category: CategoryId;
   /** Featured products lead the grid and get the large treatment */
   featured?: boolean;
+
+  /* ---- Commerce ----------------------------------------------------------
+     PLACEHOLDER PRICING. Every `price`/`compareAt` below is an example value,
+     not Intylact's real pricing. Replace them here — this file is the single
+     source of truth, so nothing else needs editing. Prices are MXN.
+     ---------------------------------------------------------------------- */
+  price: number;
+  /** Original price when discounted; drives the sale badge and strike-through */
+  compareAt?: number;
+  /** Average rating 0–5. PLACEHOLDER — replace with real review data. */
+  rating?: number;
+  reviewCount?: number;
+  badge?: "nuevo" | "mas-vendido" | "agotandose";
+  inStock?: boolean;
 };
+
+export type Category = {
+  id: CategoryId;
+  label: string;
+  blurb: string;
+  /** Tailwind gradient stops for the category tile */
+  accent: string;
+};
+
+export const categories: Category[] = [
+  {
+    id: "gel",
+    label: "Hidratación",
+    blurb: "Geles y cuidado diario",
+    accent: "from-coral-100 to-coral-200",
+  },
+  {
+    id: "jabon",
+    label: "Higiene íntima",
+    blurb: "Jabones con pH balanceado",
+    accent: "from-mint-100 to-mint-300/50",
+  },
+  {
+    id: "suplemento",
+    label: "Suplementos",
+    blurb: "Probióticos e inositol",
+    accent: "from-violet-500/15 to-pink-500/20",
+  },
+  {
+    id: "copa",
+    label: "Protección",
+    blurb: "Copas y esenciales",
+    accent: "from-butter-100 to-butter-200/70",
+  },
+];
 
 export const products: Product[] = [
   {
@@ -36,6 +87,12 @@ export const products: Product[] = [
     image: "/products/group-54.webp",
     category: "gel",
     featured: true,
+    price: 289,
+    compareAt: 349,
+    rating: 4.8,
+    reviewCount: 0,
+    badge: "mas-vendido",
+    inStock: true,
   },
   {
     slug: "intyprob",
@@ -48,6 +105,12 @@ export const products: Product[] = [
     image: "/products/intyprob.webp",
     category: "suplemento",
     featured: true,
+    price: 549,
+    compareAt: 649,
+    rating: 4.9,
+    reviewCount: 0,
+    badge: "nuevo",
+    inStock: true,
   },
   {
     slug: "copas-urinarias",
@@ -60,6 +123,10 @@ export const products: Product[] = [
     image: "/products/group-52.webp",
     category: "copa",
     featured: true,
+    price: 199,
+    rating: 4.7,
+    reviewCount: 0,
+    inStock: true,
   },
   {
     slug: "jabon-intimo-autoclean",
@@ -71,6 +138,10 @@ export const products: Product[] = [
     accent: "from-mint-100 to-butter-100",
     image: null,
     category: "jabon",
+    price: 179,
+    rating: 4.6,
+    reviewCount: 0,
+    inStock: true,
   },
   {
     slug: "jabon-intimo-intensecalm",
@@ -82,6 +153,10 @@ export const products: Product[] = [
     accent: "from-butter-100 to-coral-100",
     image: null,
     category: "jabon",
+    price: 179,
+    rating: 4.7,
+    reviewCount: 0,
+    inStock: true,
   },
   {
     slug: "jabon-intimo-tripack",
@@ -93,6 +168,12 @@ export const products: Product[] = [
     accent: "from-mint-100 to-mint-300/40",
     image: null,
     category: "jabon",
+    price: 449,
+    compareAt: 537,
+    rating: 4.9,
+    reviewCount: 0,
+    badge: "mas-vendido",
+    inStock: true,
   },
 ];
 

@@ -1,10 +1,11 @@
-import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/lib/products";
 import Button from "@/components/ui/Button";
 import SectionShell from "@/components/ui/SectionShell";
 import ScallopDivider from "@/components/ui/ScallopDivider";
 import Reveal from "@/components/ui/Reveal";
+import Carousel from "@/components/ui/Carousel";
+import ProductCard from "@/components/ui/ProductCard";
 
 /**
  * Product line.
@@ -43,75 +44,17 @@ export default function ProductGrid() {
         </div>
       </Reveal>
 
-      {/* Featured — swipeable on phones, grid from sm up.
-          Negative margins let cards bleed to the screen edge while the section
-          keeps its 22px gutter. */}
-      <ul
-        className="
-          mt-10 -mx-[22px] flex snap-x snap-mandatory gap-4 overflow-x-auto px-[22px] pb-4
-          [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-          sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0
-          lg:grid-cols-3
-        "
-      >
-        {featured.map((p, i) => (
-          <li
-            key={p.slug}
-            className="w-[78vw] max-w-[310px] shrink-0 snap-center sm:w-auto sm:max-w-none"
-          >
-            <Reveal delay={i * 110} className="h-full">
-              <Link
-                href={`/tienda/${p.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] bg-white shadow-[0_4px_24px_rgba(0,48,60,.08)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_22px_50px_rgba(0,48,60,.16)] sm:rounded-[2rem]"
-              >
-                <div
-                  className={`relative grid aspect-square place-items-center bg-gradient-to-br ${p.accent} sm:aspect-[5/4]`}
-                >
-                  <span className="absolute left-3.5 top-3.5 rounded-full bg-white/90 px-3 py-1.5 font-heading text-[11px] font-semibold uppercase tracking-wider text-teal-900">
-                    {p.size}
-                  </span>
-                  {p.image && (
-                    <Image
-                      src={p.image}
-                      alt={p.name}
-                      width={460}
-                      height={460}
-                      sizes="(max-width: 640px) 78vw, (max-width: 1024px) 50vw, 33vw"
-                      className="h-[80%] w-auto object-contain drop-shadow-[0_14px_26px_rgba(0,48,60,.18)] transition-transform duration-700 group-hover:scale-[1.07]"
-                    />
-                  )}
-                </div>
-
-                <div className="flex flex-1 flex-col p-5 sm:p-7">
-                  <h3 className="font-heading text-lg font-semibold leading-snug sm:text-xl">
-                    {p.name}
-                  </h3>
-                  <p className="mt-2 text-[13px] leading-relaxed text-teal-900/70 sm:mt-2.5 sm:text-sm">
-                    {p.tagline}
-                  </p>
-                  {/* Long-form detail is noise on a phone card; show from sm up */}
-                  <p className="mt-3 hidden flex-1 text-sm leading-relaxed text-teal-900/55 sm:block">
-                    {p.detail}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 font-heading text-sm font-semibold text-coral-500 transition-colors group-hover:text-teal-900 sm:mt-6">
-                    Ver producto
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      aria-hidden="true"
-                      className="transition-transform duration-300 group-hover:translate-x-1"
-                    >
-                      <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            </Reveal>
-          </li>
-        ))}
-      </ul>
+      <div className="mt-10">
+        <Carousel
+          label="Productos destacados"
+          gridClass="sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:pb-0 lg:grid-cols-3"
+          itemClass="w-[78vw] max-w-[310px]"
+        >
+          {featured.map((p) => (
+            <ProductCard key={p.slug} product={p} />
+          ))}
+        </Carousel>
+      </div>
 
       {/* Swipe affordance — only meaningful while the list scrolls */}
       <p className="mt-1 text-center text-[13px] text-teal-900/45 sm:hidden">
