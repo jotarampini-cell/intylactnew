@@ -26,6 +26,7 @@ export default function Home() {
         <BenefitTicker />
         <Categories />
         <ProductGrid />
+        <InstagramReels />
         <OfferCountdown />
         <Ingredients />
         <Stats />
@@ -33,7 +34,6 @@ export default function Home() {
         <EducationBlock />
         <Testimonials />
         <CycleCalculator />
-        <InstagramReels />
         <CommunityWall />
         <DoctorBlock />
         <Activities />
