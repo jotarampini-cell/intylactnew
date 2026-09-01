@@ -137,12 +137,13 @@ export default function Hero() {
               {active.cta.label}
             </Button>
             {active.secondary && (
-              <a
+              <Button
                 href={active.secondary.href}
-                className="rounded-full border-2 border-white bg-white/15 px-7 py-3.5 font-heading text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-teal-900"
+                variant="white-outline"
+                size="lg"
               >
                 {active.secondary.label}
-              </a>
+              </Button>
             )}
           </div>
 
