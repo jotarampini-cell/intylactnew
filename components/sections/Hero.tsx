@@ -156,6 +156,46 @@ export default function Hero() {
               </li>
             ))}
           </ul>
+          {/* Controls */}
+          <div className="mt-10 flex items-center gap-3 sm:mt-12">
+            <button
+              type="button"
+              onClick={() => go(index - 1)}
+              className="grid h-11 w-11 place-items-center rounded-full bg-white/85 text-teal-900 backdrop-blur transition-colors hover:bg-white"
+            >
+              <span className="sr-only">Anterior</span>
+              <Icon name="chevron-left" size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={() => go(index + 1)}
+              className="grid h-11 w-11 place-items-center rounded-full bg-white/85 text-teal-900 backdrop-blur transition-colors hover:bg-white"
+            >
+              <span className="sr-only">Siguiente</span>
+              <Icon name="chevron-right" size={18} />
+            </button>
+
+            <ul className="ml-1 flex items-center">
+              {slides.map((s, i) => (
+                <li key={s.image}>
+                  <button
+                    type="button"
+                    onClick={() => go(i)}
+                    aria-current={i === index}
+                    className="grid h-11 w-11 place-items-center"
+                  >
+                    <span className="sr-only">Ir a la diapositiva {i + 1}</span>
+                    <span
+                      aria-hidden="true"
+                      className={`block h-2.5 rounded-full transition-all duration-[var(--dur-fast)] ease-[var(--ease-brand)] ${
+                        i === index ? "w-8 bg-white" : "w-2.5 bg-white/60"
+                      }`}
+                    />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Product stage. The blobs and the product drift at different rates on
@@ -188,51 +228,6 @@ export default function Hero() {
               />
             ))}
           </Parallax>
-        </div>
-      </div>
-
-      {/* Controls */}
-      <div className="absolute inset-x-0 bottom-12 z-10">
-        <div className="mx-auto flex max-w-[1280px] items-center gap-3 px-[22px]">
-          <button
-            type="button"
-            onClick={() => go(index - 1)}
-            className="grid h-11 w-11 place-items-center rounded-full bg-white/85 text-teal-900 backdrop-blur transition-colors hover:bg-white"
-          >
-            <span className="sr-only">Anterior</span>
-            <Icon name="chevron-left" size={18} />
-          </button>
-          <button
-            type="button"
-            onClick={() => go(index + 1)}
-            className="grid h-11 w-11 place-items-center rounded-full bg-white/85 text-teal-900 backdrop-blur transition-colors hover:bg-white"
-          >
-            <span className="sr-only">Siguiente</span>
-            <Icon name="chevron-right" size={18} />
-          </button>
-
-          <ul className="ml-1 flex items-center">
-            {slides.map((s, i) => (
-              <li key={s.image}>
-                {/* 44×44 hit area with a smaller visual dot inside, so the
-                    target is thumb-friendly without a chunky indicator. */}
-                <button
-                  type="button"
-                  onClick={() => go(i)}
-                  aria-current={i === index}
-                  className="grid h-11 w-11 place-items-center"
-                >
-                  <span className="sr-only">Ir a la diapositiva {i + 1}</span>
-                  <span
-                    aria-hidden="true"
-                    className={`block h-2.5 rounded-full transition-all duration-[var(--dur-fast)] ease-[var(--ease-brand)] ${
-                      i === index ? "w-8 bg-white" : "w-2.5 bg-white/60"
-                    }`}
-                  />
-                </button>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
 
