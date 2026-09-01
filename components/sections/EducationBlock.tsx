@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import SectionShell from "@/components/ui/SectionShell";
 import ScallopDivider from "@/components/ui/ScallopDivider";
@@ -30,12 +31,15 @@ export default function EducationBlock() {
           </div>
         </div>
 
-        {/* SWAP-IN POINT: replace with <Image src="/education/probioticos.jpg" …> */}
         <div className="relative">
-          <div className="grid aspect-[16/10] place-items-center rounded-[16px] bg-coral-200 sm:aspect-[4/3] sm:rounded-[20px]">
-            <span className="font-heading text-sm font-medium text-teal-900/55">
-              Imagen editorial
-            </span>
+          <div className="relative aspect-[16/10] overflow-hidden rounded-[16px] bg-coral-200 sm:aspect-[4/3] sm:rounded-[20px]">
+            <Image
+              src="/education/probioticos.jpg"
+              alt="Probióticos y bienestar"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
           <span
             aria-hidden="true"

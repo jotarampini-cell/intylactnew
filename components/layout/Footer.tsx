@@ -22,7 +22,6 @@ const socials = [
 ];
 
 const trust = [
-  { label: "Envío a todo México", icon: "truck" as const },
   { label: "Pago seguro", icon: "shield" as const },
   { label: "Fórmulas veganas", icon: "leaf" as const },
 ];

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import SectionShell from "@/components/ui/SectionShell";
 
@@ -34,12 +35,15 @@ export default function DoctorBlock() {
           </div>
         </div>
 
-        {/* SWAP-IN POINT: /public/team/dr-navarro.jpg */}
         <figure className="relative mx-auto w-full max-w-[420px]">
-          <div className="grid aspect-[4/3] place-items-center rounded-[16px] border-4 border-mint-300 bg-white/45 sm:aspect-[4/5] sm:rounded-[20px]">
-            <span className="font-heading text-sm font-medium text-teal-900/55">
-              Retrato
-            </span>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[16px] border-4 border-mint-300 bg-white/45 sm:aspect-[4/5] sm:rounded-[20px]">
+            <Image
+              src="/team/dr-navarro.webp"
+              alt="Dr. Héctor Navarro"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
           <figcaption className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-mint-300 px-6 py-2 font-heading text-sm font-semibold text-teal-900 shadow-md">
             Dr. Héctor Navarro
